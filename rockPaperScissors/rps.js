@@ -4,18 +4,27 @@ function displayResult() {
 
 	var tempTestForce = new Array('Rock','Paper','Scissors');
 
+
     var user_throw = document.getElementById("dd").value;
+    console.log(user_throw); 
+
+   /*test*/ 
+	var user_repeat_throw = user_throw  //Fallback-code: document.getElementById("user_choice").innerHTML;
+	console.log(user_repeat_throw); 
+	/*end test*/ 
+
     var game_ref = new Array('Rock','Paper','Scissors');
     var game_throw = game_ref[Math.floor(Math.random() * 3)];
     document.getElementById("user_choice").innerHTML = user_throw;
 	document.getElementById("computer_choice").innerHTML = game_throw;   //TEST >>Used for forcing results for testing >> tempTestForce[2];
 
-	var tempTestResult = "TEST"; 
+	
+
+	//var tempTestResult = "TEST"; 
 	
 	var gameResult = function() {
 		// Paper > Rock;   Rock > Scissors; Scisscors > Paper;
 		if(document.getElementById("user_choice").innerHTML == document.getElementById("computer_choice").innerHTML) {
-			console.log("Result is tie.");
 			return "A tie!";
 		} //End TIE Scenario ------ Takes care of one of 1/3 of all cases. (3 of 9 possible outcomes)
 
@@ -49,6 +58,6 @@ function displayResult() {
 
 	} //Ends the selection update function
 
-function refreshThePage() {
-	document.location.reload();
+function repeatLastThrow() {
+	displayResult(); 
 }
