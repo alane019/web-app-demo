@@ -1,0 +1,24 @@
+html{
+	background-color: rgb(235,243,240);
+}
+
+#page-card{
+	background: beige; 
+	padding: 14px;
+}
+
+* {
+	margin: 8px;
+
+}
+
+.display-4 {
+	font: bold; 
+	font-size: 2.2rem;
+	margin-bottom: 20px;
+}
+
+#dd {
+	background-color: lightgreen;
+	padding: 7px;
+}
