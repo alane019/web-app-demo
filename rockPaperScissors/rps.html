@@ -10,46 +10,48 @@
     <!-- Bootstrap CSS -->
   
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-PmY9l28YgO4JwMKbTvgaS7XNZJ30MK9FAZjjzXtlqyZCqBY6X6bXIkM++IkyinN+" crossorigin="anonymous">
-
     <title>Rock paper Scissors</title>
-
   </head>
   <body>
-
-
 <!--
 <div id="test">    
     <p>​This is a test</p>
 </div>​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
 --> 
-
   <div id="page-card"> 
 	  <div id="theTitle">
 	  	<span style="font-family: inherit; font-size: 50;"></span>
 <div style="text-shadow: 6px 6px 0px rgba(0,0,0,0.2);">
-<span style="font-family: inherit; font-size: 3rem;"><i>ᕕ( ᐛ )ᕗ  <b> 𝐑𝐎𝐂𝐊  𝐏𝐀𝐏𝐄𝐑  𝐒𝐂𝐈𝐒𝐒𝐎𝐑𝐒 </b>  ᕕ( ᐛ )ᕗ </i></span>
+<span style="font-family: inherit; font-size: 3rem;">ᕕ( ᐛ )ᕗ  <b> 𝐑𝐎𝐂𝐊  𝐏𝐀𝐏𝐄𝐑  𝐒𝐂𝐈𝐒𝐒𝐎𝐑𝐒 </b>  ᕕ( ᐛ )ᕗ </span>
 	   </div>
 	   <form>
 			 <div id="directions">
 			 <p>
-			  Choose rock, paper or scissors. The computer will make its choice randomly at the same moment you make your selection. Good luck!
+			 Computer choice is random. First to win 5 rounds is the champion. 
 			 </p>
 		     </div> <!-- end title div --> 
-			 
+			
+			<div style="display:inline-block;" id="dd-and-disp">
 			 <select id="dd" onclick="playSelectSound()" onchange="displayResult()">
 			  <option value=""selected disabled hidden>Make selection </option>
 			  <option value="Rock">Rock</option>
 			  <option value="Paper">Paper</option>
 			  <option value="Scissors">Scissors</option>
 			 </select>
-			
 			  <span id="display-choices">	 
-			  <div id="display box"><b>Your choice: </b><span id="user_choice"></span><br>
-								<b>Computer's choice: </b><span id="computer_choice"></span><br>
-			 <span id="display-choices">  <!-- end of span#display-choices --> 
-
+			  <b>Your choice: </b><span id="user_choice"></span>
+			  <b>Computer choice: </b><span id="computer_choice"></span>
+			 </span>  <!-- end of span#display-choices --> 
+			 </div> <!-- end dd-and-display-choices div. -->
 			 <!--result text is displayed here --> 
-			 <span id="result-text-display-area"> </span>
+			 <div id="result-test-box" class="animated fadeIn">
+			 <span id="result-text-display-area" class="animated fadeIn animate-flicker"> </span>
+			 <div> <!-- ends result-text-box. -->
+			 <div id="win-loss-result">  </div>
+
+			 <!--Invisible image container  --> 
+			 <span id="imgContainer"><img src=""></span>
+
 			  </div> <!--ends display box div> --> 
 
 

@@ -1,11 +1,20 @@
 //alert("You are about to experience something incredible.");
-var loseSound = new Audio("a/mpmd.wav" ) ;
-var selectSound = new Audio("a/bloop01.wav");
+
 var userScore = 0; 
 var computerScore = 0; 
 var lastWinner = "na"; 
 
+var loseGame = new Audio("a/loseGame.wav" );
+var selectSound = new Audio("a/click.wav");
+var clangSound = new Audio("a/clang.wav");
+var tieSound = new Audio("a/pongNoise.wav");
+var winSound = new Audio("a/ringGet.wav");
+var champSound = new Audio("a/FinalCountdown.wav");
+var loseSound = new Audio("a/loseRound.wav");
+var loseGame2 = new Audio("a/loseSound2.wav");
 
+
+		
 function displayResult() {
 
 	var tempTestForce = new Array('Rock','Paper','Scissors');
@@ -69,48 +78,61 @@ function displayResult() {
 		 if(resultDescription == "scenario--tie") { 
 		 	resultText = "Tie.";
 		 	lastWinner = "tie";
+		 	tieSound.volume = .2; 
+		 	tieSound.play(); 
 		 	 }
 
 		 	//------ Paper win scenarios.
 		 	 else if(resultDescription == "RP-lose") { 
-			  	resultText = "Paper beats rock. You lose!"; 
+			  	resultText = "Paper beats rock. You lose this round!"; 
 			  	computerScore++; 
 			  	lastWinner = "computer"; 
+			  	loseSound.volume = 0.2;
 			  	loseSound.play();
 			  }
 			 else if(resultDescription == "PR-win") { 
-			 	resultText = "Paper beats rock. You win!"; 
+			 	resultText = "Paper beats rock. You win this round!"; 
 			 	userScore++; 
 			 	lastWinner = "user"; 
+			 	winSound.volume = 0.1;
+			  	winSound.play();
 			 }
 			
 			  //------- Scissors wins scenarios. 
 			  else if (resultDescription == "PS-lose" ) {
-			  	resultText = "Scissors beats paper. You lose!";
+			  	resultText = "Scissors beats paper. You lose this round!";
 			  	computerScore++; 
 			  	lastWinner = "computer"; 
+			  	loseSound.volume = 0.2;
 			  	loseSound.play();
 			  }
 			  else if (resultDescription == "SP-win" ) {
-			  		resultText = "Scissors beats paper. You win!";
+			  		resultText = "Scissors beats paper. You win this round!";
 			  		userScore++; 
 			  		lastWinner = "user"; 
+			  		winSound.volume = 0.1;
+			  	winSound.play();
 			  	}
 			  	// ----- Rock wins scenarios. 
 			   else if (resultDescription == "SR-lose" ) {
-			   		resultText = "Rock beats scissors. You lose!";
+			   		resultText = "Rock beats scissors. You lose this round!";
 			   		computerScore++; 
 			   		lastWinner = "computer"; 
-			   		loseSound.play();
-			   	}
+			   		loseSound.volume = 0.2;
+			  		loseSound.play();
+			  	}
 			  	else if (resultDescription == "RS-win" ) {
-			  		resultText = "Rock beats scissors. You win!";
+			  		resultText = "Rock beats scissors. You win this round!";
 			  		userScore++; 
 			  		lastWinner = "user"; 
+			  		winSound.volume = 0.1;
+			  		winSound.play();
 			  	}
 			  	//---- Exception scenarios; e.g., if uses "repeat choice" function on first turn.
 				else { 
 					resultText = "Did you make a seletion?"; 
+					clangSound.volume = .3; 
+					clangSound.play(); 
 				}
 				
 		console.log(resultText); 
@@ -133,6 +155,45 @@ function displayResult() {
 		document.getElementById("user-score-slot").innerHTML = userScore; 
 		document.getElementById("computer-score-slot").innerHTML = computerScore; 
 
+
+// User hits tournament victory threshold: 
+	 if(userScore == 5)  {
+
+	 	//display Image -------
+	 	var imgBox = document.getElementsByTagName("img")[0];
+	 	document.getElementById("result-text-display-area").innerHTML = "YOU WIN THE GAME!"; 
+
+	 	imgBox.setAttribute("src", "a/jam.gif");
+	 	champSound.volume = .4; 
+	 	champSound.play(); 
+
+	 	document.getElementById("dd").disabled = true;
+	    document.getElementById("dd").style.opacity = .2;
+	 	document.getElementById("btn-repeatLastThrow").disabled = true;
+	     document.getElementById("btn-repeatLastThrow").style.opacity = .2;
+	    document.getElementById("result-text-display-area").classList.add('flashing');
+
+	 }
+
+// User hits tournament victory threshold: 
+
+	 if(computerScore == 5)  {
+	 	var imgBox = document.getElementsByTagName("img")[0];
+	   document.getElementById("result-text-display-area").innerHTML = "YOU LOSE THE GAME!"; 
+	  document.getElementById("result-text-display-area").class = "YOU LOSE THE GAME!";
+	 //document.getElementById("result-text-display-area").classList.add('flashing');
+	 document.getElementById("result-text-display-area").classList.add('flashing');
+	 	imgBox.setAttribute("src", "a/lose.gif");
+	 	loseGame.volume = .3; 
+	 	loseGame.play(); 
+	 	loseGame2.volume = .5; 
+	 	loseGame2.play(); 
+	 	document.getElementById("dd").disabled = true;
+	    document.getElementById("dd").style.opacity = .2;
+	 	document.getElementById("btn-repeatLastThrow").disabled = true;
+	     document.getElementById("btn-repeatLastThrow").style.opacity = .2;
+	 }
+
 } //Ends the selection update function
 
 
@@ -146,5 +207,21 @@ function refreshThePage() {
 }
 
 var playSelectSound = function() {
+	selectSound.volume = 0.4;
 	selectSound.play(); 
 }
+
+//-----------------------------------------------
+
+/*
+window.onload = function() {
+  var img = document.getElementById('img');
+  var container = document.getElementById('container');
+  var showImage = function showImage() {
+    img.style.display = "inline";
+    container.style.backgroundImage = "";
+ img.style.display = "none";
+  }
+
+  */
+

@@ -1,8 +1,11 @@
 html{
-	background-color: rgb(235,243,240);
+	 background-color: rgb(235,243,240); 
 }
 #directions{
 	margin: 17px;
+	font-family: arial;
+	font-size: 15px;
+	margin-right: 100px;
 }
 #page-card{
 	background: beige; 
@@ -10,7 +13,7 @@ html{
 }
 
 * {
-	margin: 8px;
+	margin: 12px;
 
 }
 
@@ -39,9 +42,7 @@ html{
 
 /* Animation CSS. Add  */ 
 
- .animated {
-            background-image: url(/a/lose.png);
-            background-repeat: no-repeat;
+		 .animated {
             background-position: left top;
             padding-top:95px;
             margin-bottom:60px;
@@ -60,36 +61,99 @@ html{
             0% {opacity: 0;}
             100% {opacity: 1;}
          }
+
+         #user_choice, #computer_choice {
+         	font-family: arial;
+         	font-size: 20px
+         }
          
          .fadeIn {
             -webkit-animation-name: fadeIn;
             animation-name: fadeIn;
          }
-
-
          /* fadeIn html usage example: <div id = "animated-example" class = "animated fadeIn">image fades in here, if available</div> */ 
+        
          #result-text-display-area {
- 			padding: 14px;
- 			margin: 14px;
-         	font-size: 40px ;
+ 			padding: 8px;
+ 			margin: 5px;
+         	font-size: 30px ;
          	font-family: arial; 
          }
-
-         .panel {
-         	background-color:rgb(49, 56, 52);
-         	color: rgba(43, 244, 17,.7)
-        
+         .panel{
+         	background-color: rgba(43, 84, 17,.7);
          }
-
-         #panel-heading-custom1 {
-			font: 30px consolas, sans-serif;
-
-			font-color: rgb(210, 220, 230);
-			color: slategray;
-         }
-
          .panel-body {
          	font: 50px consolas;
          	font-color: lime; 
+         }
+
+         #panel-heading-panel-info1, #panel-heading-panel-info2  {
+         	/* background-color:rgb(49, 106, 52); */ 
+         	font-color: rgba(43, 244, 17,.7)   
+         }
+
+         .panel-heading-custom1 {
+			font: 20px consolas, sans-serif;
+
+			font-color: lime;
+         }
+
+         select{
+         	border-radius: 2px;
+            font-family:fantasy;
+            padding: 10px; 
+            font-size: 20px;
 
          }
+
+         button {
+         	padding: 10px;
+         	font-family:fantasy;
+         	font-size: 15px; 
+         	color: rgb(9,19,19);
+         	border-radius: 8px;
+
+         }
+
+
+      
+
+
+/*-------------------------*/ 
+img {
+-webkit-box-shadow: 12px 29px 81px 0px rgba(0,13,0,0.75);
+-moz-box-shadow: 12px 29px 81px 0px rgba(0,0,0,0.75);
+box-shadow: 12px 29px 81px 0px rgba(0,0,0,0.75);
+}
+
+
+/*----Actual Flicker ------- */
+
+
+	@keyframes flickerAnimation {
+	  0%   { opacity:1; }
+	  50%  { opacity:.5; }
+	  100% { opacity:1; }
+	}
+	@-o-keyframes flickerAnimation{
+	  0%   { opacity:1; }
+	  50%  { opacity:.5; }
+	  100% { opacity:1; }
+	}
+	@-moz-keyframes flickerAnimation{
+	  0%   { opacity:1; }
+	  50%  { opacity:.5; }
+	  100% { opacity:1; }
+	}
+	@-webkit-keyframes flickerAnimation{
+	  0%   { opacity:1; }
+	  50%  { opacity:.5; }
+	  100% { opacity:1; }
+	}
+	.flashing {
+	   -webkit-animation: flickerAnimation .5s infinite ;
+	   -moz-animation: flickerAnimation .5s infinite ;
+	   -o-animation: flickerAnimation .5s infinite;
+	    animation: flickerAnimation .5s infinite;
+	}
+
