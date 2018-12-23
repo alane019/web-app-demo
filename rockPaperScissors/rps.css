@@ -80,7 +80,7 @@ html{
          	font-family: arial; 
          }
          .panel{
-         	background-color: rgba(43, 84, 17,.7);
+         	background-color: rgb(148, 178, 170);         
          }
          .panel-body {
          	font: 50px consolas;
@@ -117,14 +117,13 @@ html{
 
 
       
-
-
 /*-------------------------*/ 
-img {
+#imgContainer img{
 -webkit-box-shadow: 12px 29px 81px 0px rgba(0,13,0,0.75);
 -moz-box-shadow: 12px 29px 81px 0px rgba(0,0,0,0.75);
 box-shadow: 12px 29px 81px 0px rgba(0,0,0,0.75);
 }
+
 
 
 /*----Actual Flicker ------- */
