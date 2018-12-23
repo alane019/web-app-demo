@@ -25,9 +25,9 @@
 
   <div id="page-card"> 
 	  <div id="theTitle">
-			  <h1 class="display-4">
-			   Let's play Rock Paper Scissors!
-			  </h1>
+	  	<span style="font-family: inherit; font-size: 50;"></span>
+<div style="text-shadow: 6px 6px 0px rgba(0,0,0,0.2);">
+<span style="font-family: inherit; font-size: 3rem;"><i>ᕕ( ᐛ )ᕗ  <b> 𝐑𝐎𝐂𝐊  𝐏𝐀𝐏𝐄𝐑  𝐒𝐂𝐈𝐒𝐒𝐎𝐑𝐒 </b>  ᕕ( ᐛ )ᕗ </i></span>
 	   </div>
 	   <form>
 			 <div id="directions">
@@ -36,16 +36,20 @@
 			 </p>
 		     </div> <!-- end title div --> 
 			 
-			 <select id="dd" onchange="displayResult()">
+			 <select id="dd" onclick="playSelectSound()" onchange="displayResult()">
 			  <option value=""selected disabled hidden>Make selection </option>
 			  <option value="Rock">Rock</option>
 			  <option value="Paper">Paper</option>
 			  <option value="Scissors">Scissors</option>
 			 </select>
-					 
-			  <div id="display box"><b>You picked: </b><span id="user_choice"></span><br>
-								<b>The computer picked: </b><span id="computer_choice"></span><br>
-								<b>Result: </b><span id="the result"></span>
+			
+			  <span id="display-choices">	 
+			  <div id="display box"><b>Your choice: </b><span id="user_choice"></span><br>
+								<b>Computer's choice: </b><span id="computer_choice"></span><br>
+			 <span id="display-choices">  <!-- end of span#display-choices --> 
+
+			 <!--result text is displayed here --> 
+			 <span id="result-text-display-area"> </span>
 			  </div> <!--ends display box div> --> 
 
 
@@ -66,21 +70,21 @@
 				   
 					<div class="row">              <!------------------------- start row ---------------------> 
 					<div class="col-sm-5"> 			 <!------------------------- start column ---------> 
-					<div class="panel panel-info" id="user-score-panel">
-						<div class="panel-heading panel-info">Your Score</div>
+					<div class="panel" id="user-score-panel">
+						<div class="panel-heading panel-heading-custom1" id="panel-heading-panel-info1">Your Score</div>
 					<!-- 1-line heading -->
 						<div class="panel-body" id="user-score-slot"> 
-							<p> No idea.</p>
+							<p> 0 </p>
 						</div>  <!-- end of panel body --> 
 					</div> <!-- end panel --> 
 					</div> <!-- end 1st column --> 
 
 					<div class="col-sm-5"> 
-					<div class="panel panel-info" id="computer-score-panel">
-					<div class="panel-heading panel-info">Computer Score</div>
+					<div class="panel" id="computer-score-panel">
+					<div class="panel-heading panel-heading-custom1" id="panel-heading-panel-info2">Computer Score</div>
 					<!-- 1-line heading -->
 					<div class="panel-body" id="computer-score-slot"> 
-					<p> Null idea.</p>
+					<p> 0 </p>
 					</div>  <!-- end of panel body --> 
 					</div> <!-- end  panel --> 
 

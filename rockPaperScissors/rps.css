@@ -1,7 +1,9 @@
 html{
 	background-color: rgb(235,243,240);
 }
-
+#directions{
+	margin: 17px;
+}
 #page-card{
 	background: beige; 
 	padding: 14px;
@@ -19,8 +21,8 @@ html{
 }
 
 #dd {
-	background-color: lightgreen;
-	padding: 7px;
+  background-color: rgb(201, 204, 130);
+  padding: 7px;
 }
 
 #test p {
@@ -66,21 +68,28 @@ html{
 
 
          /* fadeIn html usage example: <div id = "animated-example" class = "animated fadeIn">image fades in here, if available</div> */ 
-
-
-         .panel {
-         	background-color: lightgray;
-
+         #result-text-display-area {
+ 			padding: 14px;
+ 			margin: 14px;
+         	font-size: 40px ;
+         	font-family: arial; 
          }
 
-         .panel-heading {
-			font: 20px consolas, sans-serif;
+         .panel {
+         	background-color:rgb(49, 56, 52);
+         	color: rgba(43, 244, 17,.7)
+        
+         }
+
+         #panel-heading-custom1 {
+			font: 30px consolas, sans-serif;
 
 			font-color: rgb(210, 220, 230);
-			color: rgb(40, 90, 80);
+			color: slategray;
          }
 
          .panel-body {
          	font: 50px consolas;
+         	font-color: lime; 
 
          }

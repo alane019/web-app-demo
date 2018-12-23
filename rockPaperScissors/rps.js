@@ -1,7 +1,9 @@
 //alert("You are about to experience something incredible.");
-
+var loseSound = new Audio("a/mpmd.wav" ) ;
+var selectSound = new Audio("a/bloop01.wav");
 var userScore = 0; 
 var computerScore = 0; 
+var lastWinner = "na"; 
 
 
 function displayResult() {
@@ -64,50 +66,72 @@ function displayResult() {
 		//text for each scenario can be updated here. 
 		//result description and text are separated to avoid logic errors when updating display text. Game scenarios will not change. 
 		//
-		 if(resultDescription == "scenario--tie") { resultText = "A tie! We will disregard this round."; }
+		 if(resultDescription == "scenario--tie") { 
+		 	resultText = "Tie.";
+		 	lastWinner = "tie";
+		 	 }
 
 		 	//------ Paper win scenarios.
 		 	 else if(resultDescription == "RP-lose") { 
 			  	resultText = "Paper beats rock. You lose!"; 
 			  	computerScore++; 
+			  	lastWinner = "computer"; 
+			  	loseSound.play();
 			  }
 			 else if(resultDescription == "PR-win") { 
 			 	resultText = "Paper beats rock. You win!"; 
 			 	userScore++; 
+			 	lastWinner = "user"; 
 			 }
 			
 			  //------- Scissors wins scenarios. 
 			  else if (resultDescription == "PS-lose" ) {
 			  	resultText = "Scissors beats paper. You lose!";
 			  	computerScore++; 
+			  	lastWinner = "computer"; 
+			  	loseSound.play();
 			  }
 			  else if (resultDescription == "SP-win" ) {
 			  		resultText = "Scissors beats paper. You win!";
 			  		userScore++; 
+			  		lastWinner = "user"; 
 			  	}
 			  	// ----- Rock wins scenarios. 
 			   else if (resultDescription == "SR-lose" ) {
 			   		resultText = "Rock beats scissors. You lose!";
 			   		computerScore++; 
+			   		lastWinner = "computer"; 
+			   		loseSound.play();
 			   	}
 			  	else if (resultDescription == "RS-win" ) {
 			  		resultText = "Rock beats scissors. You win!";
 			  		userScore++; 
+			  		lastWinner = "user"; 
 			  	}
-
-			  	//---- 
-				else { resultText = "Not really sure about that right now."; }
-
+			  	//---- Exception scenarios; e.g., if uses "repeat choice" function on first turn.
+				else { 
+					resultText = "Did you make a seletion?"; 
+				}
+				
 		console.log(resultText); 
 
 		//Result text is added to page here. 
-		document.getElementById("the result").innerHTML = resultText; 
-
+		if(lastWinner == "tie"){
+				document.getElementById("result-text-display-area").innerHTML = resultText; 
+						document.getElementById("result-text-display-area").style.color = "rgb(60, 64, 71)"; 
+		}
+		else if(lastWinner == "user"){
+		document.getElementById("result-text-display-area").innerHTML = resultText; 
+		document.getElementById("result-text-display-area").style.color = "darkgreen"; 
+		}
+		else if(lastWinner == "computer" || lastWinner == "na"){
+		document.getElementById("result-text-display-area").innerHTML = resultText; 
+		document.getElementById("result-text-display-area").style.color = "darkred"; 
+		}
+		
+	//----update the score board panels. ---------------------------------------------------------------
 		document.getElementById("user-score-slot").innerHTML = userScore; 
 		document.getElementById("computer-score-slot").innerHTML = computerScore; 
-
-
-	
 
 } //Ends the selection update function
 
@@ -119,4 +143,8 @@ function repeatLastThrow() {
 
 function refreshThePage() {
 	location.reload();
+}
+
+var playSelectSound = function() {
+	selectSound.play(); 
 }
