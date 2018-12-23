@@ -8,11 +8,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script src="rps.js"></script>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"> 
+  
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-PmY9l28YgO4JwMKbTvgaS7XNZJ30MK9FAZjjzXtlqyZCqBY6X6bXIkM++IkyinN+" crossorigin="anonymous">
+
     <title>Rock paper Scissors</title>
 
   </head>
   <body>
+
+
+<!--
+<div id="test">    
+    <p>​This is a test</p>
+</div>​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
+--> 
 
   <div id="page-card"> 
 	  <div id="theTitle">
@@ -40,25 +49,44 @@
 			  </div> <!--ends display box div> --> 
 
 
-			 <div id="addl-action-space">
+			 <div id="addl-action-space"> <!-- additional buttons go here --> 
 				   
 				   	<button type="button" onClick="repeatLastThrow()" id="btn-repeatLastThrow">Repeat Selection</button> 
 				 
 				   	<button type="button" onClick="refreshThePage()" id="btn-refreshThePage">Refresh Page</button> 
 
-			  </div>
+			  </div> <!-- end of addtional button area --> 
 
-			  <div class="progress" id="bootstrapProgressBar">
+			 <!-- <div class="progress" id="bootstrapProgressBar">
  				 <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
-				</div>
+				</div> --> 
 
-			  <div id="scoreboard">
+			  <div class="container" id="scoreboard">
+				   	<!-- Scores should be displayed here --> 
 				   
-				   	<div  onClick="repeatLastThrow()" id="btn-repeatLastThrow">Repeat Selection</button> 
-				 
-				   	<button type="button" onClick="refreshThePage()" id="btn-refreshThePage">Refresh Page</button> 
+					<div class="row">              <!------------------------- start row ---------------------> 
+					<div class="col-sm-5"> 			 <!------------------------- start column ---------> 
+					<div class="panel panel-info" id="user-score-panel">
+						<div class="panel-heading panel-info">Your Score</div>
+					<!-- 1-line heading -->
+						<div class="panel-body" id="user-score-slot"> 
+							<p> No idea.</p>
+						</div>  <!-- end of panel body --> 
+					</div> <!-- end panel --> 
+					</div> <!-- end 1st column --> 
 
-			  </div>
+					<div class="col-sm-5"> 
+					<div class="panel panel-info" id="computer-score-panel">
+					<div class="panel-heading panel-info">Computer Score</div>
+					<!-- 1-line heading -->
+					<div class="panel-body" id="computer-score-slot"> 
+					<p> Null idea.</p>
+					</div>  <!-- end of panel body --> 
+					</div> <!-- end  panel --> 
+
+					</div> <!------------------------- end column --> 
+					</div>  <!------------------------ end end row --> 
+			  </div> <!-- end of container div (#scoreboard') --> 
 		</form>		
 
 </div id="page-card">  <!-- end page card. -->	
