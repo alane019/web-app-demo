@@ -1,20 +1,48 @@
 html{
-	 background-color: rgb(235,243,240); 
+}
+body{
+ background-color: lime;
+  	 background-color: rgb(235,243,240); 
 }
 #directions{
 	margin: 17px;
 	font-family: arial;
 	font-size: 15px;
-	margin-right: 100px;
 }
 #page-card{
 	background: beige; 
-	padding: 14px;
+	padding: 9px;
+}
+* {
+	margin: 2px;
+}
+#div-table-thing{
+	display: flex;
 }
 
-* {
-	margin: 12px;
+#left-block {
+	/*  background: pink; */
+}
+#right-block {
+  /*	background: lightblue; */ 
+}
+.header-ish {
+	font-weight: bold;
+}
+.block-columns {
+	flex: 1;
+	vertical-align: top; 
+	
+}
 
+#div-table-thing {
+	/* background: red; */ 
+}
+
+.score-container-body {
+	font-size: 45px;
+	display: block;
+	margin-left: 33%;
 }
 
 .display-4 {
@@ -23,10 +51,16 @@ html{
 	margin-bottom: 20px;
 }
 
+#dd-div {
+	display: block;
+}
+
 #dd {
   background-color: rgb(201, 204, 130);
   padding: 7px;
 }
+
+
 
 #test p {
     opacity: 0;
@@ -62,11 +96,29 @@ html{
             100% {opacity: 1;}
          }
 
+         .td {
+         	/* width: 15%; */
+
+         }
+
+         #user-choice-container {
+         	float: left;
+         	background-color: yellow; 
+         }
+          #user-choice-container {
+         	float: left;
+         	background-color: cyan; 
+         }
+
+         #display-choices-user {
+         	float: left;
+         }
+
          #user_choice, #computer_choice {
          	font-family: arial;
          	font-size: 20px
          }
-         
+
          .fadeIn {
             -webkit-animation-name: fadeIn;
             animation-name: fadeIn;
@@ -74,17 +126,47 @@ html{
          /* fadeIn html usage example: <div id = "animated-example" class = "animated fadeIn">image fades in here, if available</div> */ 
         
          #result-text-display-area {
- 			padding: 8px;
- 			margin: 5px;
-         	font-size: 30px ;
+ 			padding: 4px;
+ 			margin: 4px;
+         	font-size: 20px ;
          	font-family: arial; 
+         	min-height: 65px;
+         	display: block;
          }
-         .panel{
-         	background-color: rgb(148, 178, 170);         
+        .score-container {
+        	display: inline-block;
+        	border: solid darkgray 2px;
+        	font-family: consolas; 
+        	background-color: rgb(148, 178, 170);
+         	font-color: rgba(43, 244, 17,.7);
+         	width: 40%;
+         	height: 100px;
+        }
+       
+		#score-heading {
+			margin-top: 10px;
+			font: 15px; 
+		}
+       
+         .score-container-heading {
+		background-color: rgb(120, 128, 150);
+	padding: 2px;
+		}
+	#user-score-container{
+		float: left;
+	}
+
+
+         
+
+           .panel{
+           	display: inline-block;
+         	background-color: rgb(148, 178, 170);   
          }
+
+
          .panel-body {
-         	font: 50px consolas;
-         	font-color: lime; 
+         	font: 2rem consolas;
          }
 
          #panel-heading-panel-info1, #panel-heading-panel-info2  {
@@ -94,8 +176,6 @@ html{
 
          .panel-heading-custom1 {
 			font: 20px consolas, sans-serif;
-
-			font-color: lime;
          }
 
          select{
@@ -112,8 +192,14 @@ html{
          	font-size: 15px; 
          	color: rgb(9,19,19);
          	border-radius: 8px;
-
+         	margin-left: 12px;
          }
+
+       #btn-refreshThePage {
+       	margin-left: 10px;
+       	min-width: 100%; 
+       	display:none;
+       }
 
 
       
@@ -122,6 +208,9 @@ html{
 -webkit-box-shadow: 12px 29px 81px 0px rgba(0,13,0,0.75);
 -moz-box-shadow: 12px 29px 81px 0px rgba(0,0,0,0.75);
 box-shadow: 12px 29px 81px 0px rgba(0,0,0,0.75);
+max-width:100%;
+
+
 }
 
 
@@ -155,4 +244,11 @@ box-shadow: 12px 29px 81px 0px rgba(0,0,0,0.75);
 	   -o-animation: flickerAnimation .5s infinite;
 	    animation: flickerAnimation .5s infinite;
 	}
+
+.title-shadowed {
+	font-family: inherit; 
+	font-size: 2rem;
+	text-shadow: 6px 6px 0px rgba(0,0,0,0.2);"
+}
+
 

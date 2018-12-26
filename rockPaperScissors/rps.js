@@ -12,8 +12,6 @@ var winSound = new Audio("a/ringGet.wav");
 var champSound = new Audio("a/FinalCountdown.wav");
 var loseSound = new Audio("a/loseRound.wav");
 var loseGame2 = new Audio("a/loseSound2.wav");
-
-
 		
 function displayResult() {
 
@@ -21,16 +19,24 @@ function displayResult() {
 
     var user_throw = document.getElementById("dd").value;
     console.log(user_throw); 
-
-   /*test*/ 
-	var user_repeat_throw = user_throw  //Fallback-code: document.getElementById("user_choice").innerHTML;
-	//console.log(user_repeat_throw); 
-	/*end test*/ 
-
+	/*  var user_repeat_throw = user_throw  */ 
     var game_ref = new Array('Rock','Paper','Scissors');
     var game_throw = game_ref[Math.floor(Math.random() * 3)];
-    document.getElementById("user_choice").innerHTML = user_throw;
-	document.getElementById("computer_choice").innerHTML = game_throw;   //TEST >>Used for forcing results for testing >> tempTestForce[2];
+
+ 	/* declare choice text setter functions. */ 
+    var setUserChoiceDisplayBox = function(text) {
+     	document.getElementById("user-choice-container-body").innerHTML = text; 
+    }
+ 	var setComputerChoiceDisplayBox = function(textt) {
+    	document.getElementById("computer-choice-container-body").innerHTML = textt; 
+    }
+
+    var computer_choice = game_throw; 
+    var user_choice = user_throw;
+
+    setUserChoiceDisplayBox(user_choice);
+    setComputerChoiceDisplayBox(computer_choice)
+ 	
 
 	var resultText = " result text to be displayed"; 
 	var resultDescription = "discription of game outcome scenario (e.g. user-is-paper, pc-is-rock)"; 
@@ -38,29 +44,29 @@ function displayResult() {
 	
 	var gameResult = function() {
 		// Paper > Rock;   Rock > Scissors; Scisscors > Paper;
-			if(document.getElementById("user_choice").innerHTML == document.getElementById("computer_choice").innerHTML) {
-				return  "scenario--tie"; //Note: Previously used a return statement for these and it worked. 
+			if(user_choice == computer_choice) {
+				return  "scenario--tie"; 
 			} //End TIE Scenario ------ Takes care of one of 1/3 of all cases. (3 of 9 possible outcomes)
 
 			//PC is rock 
-			else if(document.getElementById("user_choice").innerHTML === "Paper" && document.getElementById("computer_choice").innerHTML === "Rock" ) {
+			else if(user_choice === "Paper" && computer_choice === "Rock" ) {
 				return "PR-win";  
 			}
-			else if(document.getElementById("user_choice").innerHTML === "Scissors" && document.getElementById("computer_choice").innerHTML === "Rock" ) {
+			else if(user_choice === "Scissors" && computer_choice === "Rock" ) {
 				return "SR-lose";
 			}
 			//PC is paper 
-			else if(document.getElementById("user_choice").innerHTML === "Rock" && document.getElementById("computer_choice").innerHTML === "Paper" ) {
+			else if(user_choice === "Rock" && computer_choice === "Paper" ) {
 				return "RP-lose";
 			}
-			else if(document.getElementById("user_choice").innerHTML === "Scissors" && document.getElementById("computer_choice").innerHTML === "Paper" ) {
+			else if(user_choice === "Scissors" && computer_choice === "Paper" ) {
 				return "SP-win";
 			}
 			//PC is scissors
-			else if(document.getElementById("user_choice").innerHTML === "Rock" && document.getElementById("computer_choice").innerHTML === "Scissors" ) {
+			else if(user_choice === "Rock" && computer_choice === "Scissors" ) {
 				return "RS-win";
 			}
-			else if(document.getElementById("user_choice").innerHTML === "Paper" && document.getElementById("computer_choice").innerHTML === "Scissors" ) {
+			else if(user_choice === "Paper" && computer_choice === "Scissors" ) {
 				return "PS-lose";
 			}
 
@@ -131,7 +137,7 @@ function displayResult() {
 			  	//---- Exception scenarios; e.g., if uses "repeat choice" function on first turn.
 				else { 
 					resultText = "Did you make a seletion?"; 
-					clangSound.volume = .3; 
+					clangSound.volume = .5; 
 					clangSound.play(); 
 				}
 				
@@ -152,8 +158,8 @@ function displayResult() {
 		}
 		
 	//----update the score board panels. ---------------------------------------------------------------
-		document.getElementById("user-score-slot").innerHTML = userScore; 
-		document.getElementById("computer-score-slot").innerHTML = computerScore; 
+		document.getElementById("user-score-container-body").innerHTML = userScore; 
+		document.getElementById("computer-score-container-body").innerHTML = computerScore; 
 
 
 // User hits tournament victory threshold: 
@@ -169,10 +175,9 @@ function displayResult() {
 
 	 	document.getElementById("dd").disabled = true;
 	    document.getElementById("dd").style.opacity = .2;
-	 	document.getElementById("btn-repeatLastThrow").disabled = true;
-	     document.getElementById("btn-repeatLastThrow").style.opacity = .2;
 	    document.getElementById("result-text-display-area").classList.add('flashing');
-
+	    document.getElementById('btn-repeatLastThrow').setAttribute("onClick","refreshThePage()");
+	    document.getElementById('btn-repeatLastThrow').innerHTML = "Play again"
 	 }
 
 // User hits tournament victory threshold: 
@@ -189,10 +194,13 @@ function displayResult() {
 	 	loseGame2.volume = .5; 
 	 	loseGame2.play(); 
 	 	document.getElementById("dd").disabled = true;
-	    document.getElementById("dd").style.opacity = .2;
-	 	document.getElementById("btn-repeatLastThrow").disabled = true;
-	     document.getElementById("btn-repeatLastThrow").style.opacity = .2;
+	    document.getElementById("dd").style.opacity = .2
+	    document.getElementById('btn-repeatLastThrow').setAttribute("onClick","refreshThePage()");
+	    document.getElementById('btn-repeatLastThrow').innerHTML = "Play again";
+
 	 }
+    
+
 
 } //Ends the selection update function
 
@@ -213,15 +221,17 @@ var playSelectSound = function() {
 
 //-----------------------------------------------
 
-/*
+
 window.onload = function() {
-  var img = document.getElementById('img');
+  document.getElementById('btn-repeatLastThrow').setAttribute("onClick","repeatLastThrow()");
+
+ /* var img = document.getElementById('img');
   var container = document.getElementById('container');
   var showImage = function showImage() {
     img.style.display = "inline";
     container.style.backgroundImage = "";
- img.style.display = "none";
+ img.style.display = "none";  */
   }
 
-  */
+  
 
