@@ -4,18 +4,39 @@ body{
  background-color: lime;
   	 background-color: rgb(235,243,240); 
 }
-#directions{
+.directions{
 	margin: 17px;
 	font-family: arial;
 	font-size: 15px;
 }
+#rule-box {
+	padding:3px;
+	background-color:lightgray;
+	max-width: 300px; 
+	margin: 7px;
+}
+
 #page-card{
 	background: beige; 
 	padding: 9px;
+	padding-bottom: 85px; 
+	padding-left: 12px;
 }
 * {
 	margin: 2px;
 }
+
+
+
+#myBtn{ 
+	margin-left:40px;
+	margin-top: 3px; 
+    font-family: arial;
+    color: rgb(68,68,65);
+    background-color: rrgb(206, 206, 177);
+
+ }
+
 #div-table-thing{
 	display: flex;
 }
@@ -43,6 +64,7 @@ body{
 	font-size: 45px;
 	display: block;
 	margin-left: 33%;
+	color: rgb(51, 61, 58);
 }
 
 .display-4 {
@@ -60,8 +82,28 @@ body{
   padding: 7px;
 }
 
+#div-table-thing{
 
+	/* background: #d5cea6;
+background: -moz-linear-gradient(top, #d5cea6 24%, #b29e5e 70%);
+background: -webkit-linear-gradient(top, #d5cea6 24%,#b29e5e 70%);
+background: linear-gradient(to bottom, #d5cea6 24%,#b29e5e 70%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d5cea6', endColorstr='#b29e5e',GradientType=0 ); */ 
 
+}
+
+.header-ish {
+	font-family: arial;
+	font-size: 15px;
+}
+
+.cell-ish {
+	font-family: arial; 
+	color: rgb(57, 57, 107);
+	
+}
+
+/* Part of animation style?  */ 
 #test p {
     opacity: 0;
     margin-top: 25px;
@@ -157,26 +199,7 @@ body{
 	}
 
 
-         
-
-           .panel{
-           	display: inline-block;
-         	background-color: rgb(148, 178, 170);   
-         }
-
-
-         .panel-body {
-         	font: 2rem consolas;
-         }
-
-         #panel-heading-panel-info1, #panel-heading-panel-info2  {
-         	/* background-color:rgb(49, 106, 52); */ 
-         	font-color: rgba(43, 244, 17,.7)   
-         }
-
-         .panel-heading-custom1 {
-			font: 20px consolas, sans-serif;
-         }
+     
 
          select{
          	border-radius: 2px;
@@ -192,6 +215,7 @@ body{
          	font-size: 15px; 
          	color: rgb(9,19,19);
          	border-radius: 8px;
+         	margin: 8px;
          	margin-left: 12px;
          }
 
@@ -199,6 +223,10 @@ body{
        	margin-left: 10px;
        	min-width: 100%; 
        	display:none;
+       }
+
+        #btn-repeatLastThrow {
+       	font-family: arial;
        }
 
 
@@ -251,4 +279,71 @@ max-width:100%;
 	text-shadow: 6px 6px 0px rgba(0,0,0,0.2);"
 }
 
+
+
+/* MODAL WINDOW ----------------------------  */ 
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* ---------------------------------------- */
+/* image fade in ---------------------------*/ 
+
+@-webkit-keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+	-webkit-animation: fadeIn .5s ease-in 1 forwards;
+  animation: fadeIn .5s ease-in 1 forwards;
+  opacity: 0;
+}
+
+.is-paused {
+	-webkit-animation-play-state: paused;
+  animation-play-state: paused;
+}
 

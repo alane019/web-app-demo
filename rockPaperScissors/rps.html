@@ -1,29 +1,19 @@
 
 
-<!doctype html>
+<html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
-     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  	<meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
 
+  
      <!-- <script>
         let d = new Date();
         alert("Today's date is " + d);
     </script> --> 
 
-
+     <link rel="stylesheet" href="rps.css">
     <script src="rps.js"></script>
-    <!-- Bootstrap CSS -->
   
-  <!-- commenting out bootstrap temporarily 
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" > --> 
-     <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
 
     <title>Rock paper Scissors</title>
   </head>
@@ -38,39 +28,66 @@
 <div class="title-shadowed">
 <span><b> 𝐑𝐎𝐂𝐊  𝐏𝐀𝐏𝐄𝐑  𝐒𝐂𝐈𝐒𝐒𝐎𝐑𝐒 </b></span> </div>
 	   <form>
-			 <div id="directions">
-			 <p>
-			Rock beats scissors. Scissors beats paper. Paper beats rock. 
-			First to win five rounds is the champion. 
-			 </p>
+	   		<div class="directions">
+			 <p>First to win five rounds is the game winner. </p>
 		     </div> <!-- end title div --> 
 
-			
+<!--- Modal directions --------------------------------------> 
+
+<!--- --------------------------------------------------------> 
+		     <!-- Trigger/Open The Modal -->
+<button id="myBtn" type="button"  onClick="openModal()">See full list of rules</button>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  	<div class="modal-content">
+    <span class="close"  onClick="closeModal()">&times;</span>
+    		
+    			<h3>Rules and Instructions</h3>
+    			<div id="rule-box"> <ol>
+						<li>Rock beats scissors. </li>  
+				        <li>Scissors beats paper. </li>  
+						<li>Paper beats rock. </li>  
+					</ol>
+				</div> 
+
+			<ul> 
+				<li> <p>Use the drop down selector to choose rock, paper or scissors</p> </li>
+				<li> <p>The computer's choice is selected randomly each turn. </p></li> 
+				<li> <p></p>One point is awarded to the winner of each round.</li>
+				<li> <p>First to win five rounds is the game winner. </p></li>
+
+			</ul>
+
+	</div> <!-- end modal content --> 	
+
+  </div> <!-- end model class --> 
+<!--- Modal directions --------------------------------------> 
+<!------------------------------------------------------------> 
+
+
 			<div id="dd-div">
 			 <select id="dd" onclick="playSelectSound()" onchange="displayResult()">
-			  <option value=""selected disabled hidden>Make selection </option>
+			  <option value="--">Rock, Paper or Scissors &quest; </option>
 			  <option value="Rock">Rock</option>
 			  <option value="Paper">Paper</option>
 			  <option value="Scissors">Scissors</option>
 			 </select>
 			  </div> <!-- end dd-div  -->
-
 			  <!-- spans are cells, rows are divs. The whole thing is wrapped in a div. --> 
 			  <div class="table" id="div-table-thing">
-
 			  		<div id="left-block" class="block-columns">
 					    <div class="td header-ish">Your selection </div>
 					<div id="user-choice-container-body" class="td cell-ish"> -- </div>
 			   		</div> <!-- end inline block, left-block, 'mini-table' --> 
-
 					<div id="right-block" class="block-columns">
 						<div class="td header-ish">Computer selection</div>
 						<div id="computer-choice-container-body"class="td cell-ish"> -- </div>
 					 </div> <!-- end inline block, right-block, 'mini-table' --> 
 			    </div> <!-- end red div container that holds inline blocks. --> 
 			
-		
-
 			 <!-- result text is displayed here --> 
 			 <div id="result-test-box" class="animated fadeIn">
 			 <span id="result-text-display-area" class="animated fadeIn animate-flicker">  </span>
@@ -78,22 +95,19 @@
 			 <div id="win-loss-result">  </div>
 
 			 <!--Invisible image container  --> 
-			 <span id="imgContainer"><img src=""></span>
+			 <span id="imgContainer" class="js-fade fade-in is-paused"><img src=""></span>
 
 			  </div> <!--ends result display containers> --> 
 
 			 <div id="addl-action-space"> <!-- additional buttons go here --> 
 				   
-				   	<button type="button" onClick="refreshThePage()" id="btn-repeatLastThrow">Repeat Selection</button> 
+				   	<button type="button" onClick="refreshThePage()" id="btn-repeatLastThrow">Repeat  last selection</button> 
 				 
-				   	<button type="button" onClick="refreshThePage()" id="btn-refreshThePage">Refresh Page</button> 
+				   	<!-- <button type="button" onClick="refreshThePage()" id="btn-refreshThePage">Refresh Page</button>  --> 
 
 
 			  </div> <!-- end of addtional button area --> 
 
-			 <!-- <div class="progress" id="bootstrapProgressBar">
- 				 <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
-				</div> --> 
 
 			<div id="score-heading"> <h4>Current score </h4></div>
 				   	<!-- Scores should be displayed here --> 
@@ -114,14 +128,7 @@
 		</form>		
 
 </div id="page-card">  <!-- end page card. -->	
-					
-	
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
- <!--   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>  --> 
-     <link rel="stylesheet" href="rps.css">
+
   </body>
 </html>

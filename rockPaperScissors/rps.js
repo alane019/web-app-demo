@@ -1,5 +1,3 @@
-//alert("You are about to experience something incredible.");
-
 var userScore = 0; 
 var computerScore = 0; 
 var lastWinner = "na"; 
@@ -12,34 +10,79 @@ var winSound = new Audio("a/ringGet.wav");
 var champSound = new Audio("a/FinalCountdown.wav");
 var loseSound = new Audio("a/loseRound.wav");
 var loseGame2 = new Audio("a/loseSound2.wav");
+
+var user_repeat_throw = "init";
+
+
+var resetSelectBox = function() {
+	document.getElementById("dd").value = "--";
+}
+
+/* helper function for wait command. */ 
+const delay = ms => new Promise(res => setTimeout(res, ms));
+
+var repeatLastMode = "off";
+
 		
 function displayResult() {
 
-	var tempTestForce = new Array('Rock','Paper','Scissors');
+	document.getElementById("result-text-display-area").style ="font-size:20px";	
+	 console.log(repeatLastMode); 
 
+	 /* var tempTestForce = new Array('Rock','Paper','Scissors'); */
+
+	 if (repeatLastMode == "on") {
+	 	var user_throw  = document.getElementById('user-choice-container-body').innerHTML;
+	 	console.log("User throw assigned in repeatMode condit: " + user_throw);
+	 	repeatLastMode = "off"; 
+	 	 console.log(repeatLastMode); 
+
+	} 
+	else { 
     var user_throw = document.getElementById("dd").value;
+    	console.log("dd value assigned to user_throw: " + user_throw);
+    	 console.log(repeatLastMode); 
+
+	}
+    console.log(repeatLastMode); 
+
     console.log(user_throw); 
-	/*  var user_repeat_throw = user_throw  */ 
+
+   if(user_throw == "--") {return; } 
+
+	var user_repeat_throw = user_throw;
+	console.log("user_repeat_throw: " + user_repeat_throw);
+
     var game_ref = new Array('Rock','Paper','Scissors');
     var game_throw = game_ref[Math.floor(Math.random() * 3)];
 
- 	/* declare choice text setter functions. */ 
+ 	/* declare choice text setting functions. */ 
     var setUserChoiceDisplayBox = function(text) {
      	document.getElementById("user-choice-container-body").innerHTML = text; 
+     	const yourFunction = async () => {
+   		/*delay function is defined earlier in this file */ 
+   		/*  code source: https://goo.gl/G9c5DM  */
+ 		await delay(4000);
+ 		console.log("Waited 4s");
+		 };
     }
- 	var setComputerChoiceDisplayBox = function(textt) {
-    	document.getElementById("computer-choice-container-body").innerHTML = textt; 
+
+ 	var setComputerChoiceDisplayBox = function(text) {
+    	document.getElementById("computer-choice-container-body").innerHTML = text; 
     }
+
+    console.log("user_throw, just before passed to selection display set function: " + user_throw);
 
     var computer_choice = game_throw; 
+
     var user_choice = user_throw;
 
+    setComputerChoiceDisplayBox(computer_choice);
     setUserChoiceDisplayBox(user_choice);
-    setComputerChoiceDisplayBox(computer_choice)
- 	
 
-	var resultText = " result text to be displayed"; 
-	var resultDescription = "discription of game outcome scenario (e.g. user-is-paper, pc-is-rock)"; 
+
+	var resultText = "result text to be displayed"; 
+	var resultDescription = "description of game outcome scenario (e.g. user-is-paper, pc-is-rock)"; 
 	//var tempTestResult = "TEST"; 
 	
 	var gameResult = function() {
@@ -82,6 +125,7 @@ function displayResult() {
 		//result description and text are separated to avoid logic errors when updating display text. Game scenarios will not change. 
 		//
 		 if(resultDescription == "scenario--tie") { 
+		 	document.getElementById("result-text-display-area").style ="font-size:35px";	
 		 	resultText = "Tie.";
 		 	lastWinner = "tie";
 		 	tieSound.volume = .2; 
@@ -136,7 +180,7 @@ function displayResult() {
 			  	}
 			  	//---- Exception scenarios; e.g., if uses "repeat choice" function on first turn.
 				else { 
-					resultText = "Did you make a seletion?"; 
+					resultText = "Did you make a selection?"; 
 					clangSound.volume = .5; 
 					clangSound.play(); 
 				}
@@ -170,6 +214,9 @@ function displayResult() {
 	 	document.getElementById("result-text-display-area").innerHTML = "YOU WIN THE GAME!"; 
 
 	 	imgBox.setAttribute("src", "a/jam.gif");
+
+	 	var imgContainer = document.getElementById("imgContainer"); 
+	 	imgContainer.classList.remove("is-paused");
 	 	champSound.volume = .4; 
 	 	champSound.play(); 
 
@@ -177,11 +224,10 @@ function displayResult() {
 	    document.getElementById("dd").style.opacity = .2;
 	    document.getElementById("result-text-display-area").classList.add('flashing');
 	    document.getElementById('btn-repeatLastThrow').setAttribute("onClick","refreshThePage()");
-	    document.getElementById('btn-repeatLastThrow').innerHTML = "Play again"
+	    document.getElementById('btn-repeatLastThrow').innerHTML = "Play again";
+	    document.getElementById('dd-div').style="display:none";
 	 }
-
-// User hits tournament victory threshold: 
-
+// Computer hits tournament victory threshold: 
 	 if(computerScore == 5)  {
 	 	var imgBox = document.getElementsByTagName("img")[0];
 	   document.getElementById("result-text-display-area").innerHTML = "YOU LOSE THE GAME!"; 
@@ -189,6 +235,10 @@ function displayResult() {
 	 //document.getElementById("result-text-display-area").classList.add('flashing');
 	 document.getElementById("result-text-display-area").classList.add('flashing');
 	 	imgBox.setAttribute("src", "a/lose.gif");
+	 	
+	 	var imgContainer = document.getElementById("imgContainer"); 
+	 	imgContainer.classList.remove("is-paused");
+
 	 	loseGame.volume = .3; 
 	 	loseGame.play(); 
 	 	loseGame2.volume = .5; 
@@ -197,18 +247,20 @@ function displayResult() {
 	    document.getElementById("dd").style.opacity = .2
 	    document.getElementById('btn-repeatLastThrow').setAttribute("onClick","refreshThePage()");
 	    document.getElementById('btn-repeatLastThrow').innerHTML = "Play again";
+	    	    document.getElementById('dd-div').style="display:none";
 
 	 }
-    
-
+   
+  // Reset the drop-down selection box for user.
+ resetSelectBox();
 
 } //Ends the selection update function
 
-
 function repeatLastThrow() {
+
+	repeatLastMode = "on";
 	displayResult(); 
 }
-
 
 function refreshThePage() {
 	location.reload();
@@ -221,7 +273,6 @@ var playSelectSound = function() {
 
 //-----------------------------------------------
 
-
 window.onload = function() {
   document.getElementById('btn-repeatLastThrow').setAttribute("onClick","repeatLastThrow()");
 
@@ -231,7 +282,22 @@ window.onload = function() {
     img.style.display = "inline";
     container.style.backgroundImage = "";
  img.style.display = "none";  */
+  } // end window.onload function. 
+
+
+/* modal window functions --------------------------------------------------- */ 
+var openModal = function() {
+ 	document.getElementById('myModal').style = "display:block";
   }
+// When the user clicks on <span> (x), close the modal
+var closeModal = function() {
+	document.getElementById('myModal').style = "display:none";  
+ } 
 
-  
+window.onclick = function(event) {
+ modal = document.getElementById('myModal')
 
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
