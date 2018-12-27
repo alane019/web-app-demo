@@ -34,10 +34,10 @@
 
 <!--- --------------------------------------------------------> 
 		     <!-- Trigger/Open The Modal -->
-<button id="myBtn" type="button"  onClick="openModal()">Additional Instructions</button>
+<button id="myBtn" type="button" onClick="openModal()">Additional Instructions</button>
 
 <!-- The Modal -->
-<div id="myModal" class="modal">
+<div id="myModal" class="modal fade-in is-paused">
 
   <!-- Modal content -->
   	<div class="modal-content">
@@ -67,7 +67,7 @@
 
 
 			<div id="dd-div">
-			 <select id="dd" onclick="playSelectSound()" onchange="displayResult()">
+			 <select id="dd" onclick="ddClicked()" onchange="displayResult()">
 			  <option value="--" selected="true" disabled="disabled">Make selection</option>
 			  <option value="Rock">Rock</option>
 			  <option value="Paper">Paper</option>
@@ -78,11 +78,11 @@
 			  <div class="table" id="div-table-thing">
 			  		<div id="left-block" class="block-columns">
 					    <div class="td header-ish">Your selection </div>
-					<div id="user-choice-container-body" class="td cell-ish fade-in-2"> -- </div>
+					<div id="user-choice-container-body" class="td cell-ish fade-in is-paused"> -- </div>
 			   		</div> <!-- end inline block, left-block, 'mini-table' --> 
 					<div id="right-block" class="block-columns">
 						<div class="td header-ish">Computer selection</div>
-						<div id="computer-choice-container-body"class="td cell-ish fade-in-2"> -- </div>
+						<div id="computer-choice-container-body"class="td cell-ish fade-in is-paused"> -- </div>
 					 </div> <!-- end inline block, right-block, 'mini-table' --> 
 			    </div> <!-- end red div container that holds inline blocks. --> 
 			

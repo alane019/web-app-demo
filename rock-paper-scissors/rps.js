@@ -18,6 +18,9 @@ var resetSelectBox = function() {
 	document.getElementById("dd").value = "--";
 }
 
+
+
+
 /* helper function for wait command. */ 
 //const delay = ms => new Promise(res => setTimeout(res, ms));
 
@@ -35,7 +38,6 @@ function displayResult() {
 	 	var user_throw  = document.getElementById('user-choice-container-body').innerHTML;
 	 	console.log("User throw assigned in repeatMode condit: " + user_throw);
 	 	repeatLastMode = "off"; 
-	 	 console.log(repeatLastMode); 
 
 	} 
 	else { 
@@ -44,7 +46,6 @@ function displayResult() {
     	 console.log(repeatLastMode); 
 
 	}
-    console.log(repeatLastMode); 
 
     console.log(user_throw); 
 
@@ -56,19 +57,35 @@ function displayResult() {
     var game_ref = new Array('Rock','Paper','Scissors');
     var game_throw = game_ref[Math.floor(Math.random() * 3)];
 
+ // CHOICE FADE IN LOGIC [[[[[[[[[[[]]]]}}}}}]][[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]][[[[[[[[[]]]]]]]]]
+
+
+
  	/* declare choice text setting functions. */ 
     var setUserChoiceDisplayBox = function(text) {
-     	document.getElementById("user-choice-container-body").innerHTML = text; 
-     	const yourFunction = async () => {
-   		/*delay function is defined earlier in this file */ 
-   		/*  code source: https://goo.gl/G9c5DM  */
- 		await delay(4000);
- 		console.log("Waited 4s");
-		 };
+
+    	//ucd is user choice display
+    	var	ucd = document.getElementById("user-choice-container-body");
+    	//set passed in value to display on page as user choice
+     	ucd.innerHTML = text;  
+
+    	var ucd_list = ucd.classList; 
+
+    	//this portion should not run the first time the select box is updated. 
+    	if(ucd_list.contains("is-paused")==false) {
+			ucd_list.add("is-paused");
+    	}
+    	ucd_list.remove("is-paused");
+    	ucd.style = "display: block";  
     }
 
- 	var setComputerChoiceDisplayBox = function(text) {
-    	document.getElementById("computer-choice-container-body").innerHTML = text; 
+
+ // CHOICE FADE IN LOGIC
+ 	var setComputerChoiceDisplayBox = function(text) {  // ~ [[[[[[[[[[[]]]]}}}}}]]]]]]]]]]]]]]][[[[[[[[[]]]]]]]]]
+
+    	var ccd = document.getElementById("computer-choice-container-body");
+    	ccd.innerHTML = text; 
+    	ccd.classList.remove("is-paused");
     }
 
     console.log("user_throw, just before passed to selection display set function: " + user_throw);
@@ -81,6 +98,8 @@ function displayResult() {
     setUserChoiceDisplayBox(user_choice);
 
 
+
+
 	var resultText = "result text to be displayed"; 
 	var resultDescription = "description of game outcome scenario (e.g. user-is-paper, pc-is-rock)"; 
 	//var tempTestResult = "TEST"; 
@@ -89,7 +108,7 @@ function displayResult() {
 		// Paper > Rock;   Rock > Scissors; Scisscors > Paper;
 			if(user_choice == computer_choice) {
 				return  "scenario--tie"; 
-			} //End TIE Scenario ------ Takes care of one of 1/3 of all cases. (3 of 9 possible outcomes)
+			} //End TIE Scenario ------ 
 
 			//PC is rock 
 			else if(user_choice === "Paper" && computer_choice === "Rock" ) {
@@ -269,7 +288,7 @@ imgContainer.style="margin-top: -200px;"
   // Reset the drop-down selection box for user.
  resetSelectBox();
 
-} //Ends the selection update function
+} //Ends the selection update function ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 function repeatLastThrow() {
 
@@ -286,10 +305,54 @@ var playSelectSound = function() {
 	selectSound.play(); 
 }
 
+
+var addFadePause = function() { //CSS Fade pause reset
+
+	console.log("yes, addFadePause did run. ")
+
+	//user display list two 
+	 var u = document.getElementById("user-choice-container-body");
+
+
+
+/* / >>> https://stackoverflow.com/questions/3387427/remove-element-by-id?rq=1
+	 Element.prototype.remove = function() {
+    this.parentElement.removeChild(this);
+}
+NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
+    for(var i = this.length - 1; i >= 0; i--) {
+        if(this[i] && this[i].parentElement) {
+            this[i].parentElement.removeChild(this[i]);
+        }
+    }
+}
+// >>> ------------------------------------------------------------------ */ 
+
+
+  u.style =  "display:none";
+	 if (u.classList.contains("is-paused")) {
+	      u.classList.remove("is-paused");
+	 }
+ 	u.classList.add("is-paused");
+
+
+}
+var ddClicked = function() {
+	playSelectSound();
+	addFadePause(); 
+}
+
+
+
+
 //-----------------------------------------------
 
 window.onload = function() {
- document.getElementById('btn-repeatLastThrow').setAttribute("onClick","repeatLastThrow()");
+
+var brlt = document.getElementById('btn-repeatLastThrow');
+brlt.setAttribute("onClick","repeatLastThrow()");
+ 
+var uccb = document.getElementById('user-choice-container-body');
 
  document.getElementById('btn-repeatLastThrow').disabled = true;
  document.getElementById('btn-repeatLastThrow').style.opacity = .2;
@@ -305,6 +368,7 @@ window.onload = function() {
 
 /* modal window functions --------------------------------------------------- */ 
 var openModal = function() {
+	document.getElementById('myModal').classList.remove("is-paused");
  	document.getElementById('myModal').style = "display:block";
   }
 // When the user clicks on <span> (x), close the modal
@@ -317,5 +381,7 @@ window.onclick = function(event) {
 
   if (event.target == modal) {
     modal.style.display = "none";
+   // ucl_list.remove("is-paused");
   }
 }
+/* --------------------------------------------------------------------------- */ 
