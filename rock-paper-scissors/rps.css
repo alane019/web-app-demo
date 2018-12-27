@@ -1,0 +1,349 @@
+html{
+}
+body{
+ background-color: lime;
+  	 background-color: rgb(235,243,240); 
+}
+.directions{
+	margin: 17px;
+	font-family: arial;
+	font-size: 15px;
+}
+#rule-box {
+	padding:3px;
+	background-color:lightgray;
+	max-width: 300px; 
+	margin: 7px;
+}
+
+#page-card{
+	background: beige; 
+	padding: 9px;
+	padding-bottom: 85px; 
+	padding-left: 12px;
+}
+* {
+	margin: 2px;
+}
+
+
+
+#myBtn{ 
+	margin-left:40px;
+	margin-top: 3px; 
+    font-family: arial;
+    color: rgb(68,68,65);
+    background-color: rrgb(206, 206, 177);
+
+ }
+
+#div-table-thing{
+	display: flex;
+}
+
+#left-block {
+	/*  background: pink; */
+}
+#right-block {
+  /*	background: lightblue; */ 
+}
+.header-ish {
+	font-weight: bold;
+}
+.block-columns {
+	flex: 1;
+	vertical-align: top; 
+	
+}
+
+#div-table-thing {
+	/* background: red; */ 
+}
+
+.score-container-body {
+	font-size: 45px;
+	display: block;
+	margin-left: 33%;
+	color: rgb(51, 61, 58);
+}
+
+.display-4 {
+	font: bold; 
+	font-size: 2.2rem;
+	margin-bottom: 20px;
+}
+
+#dd-div {
+	display: block;
+}
+
+#dd {
+  background-color: rgb(201, 204, 130);
+  padding: 7px;
+}
+
+#div-table-thing{
+
+	/* background: #d5cea6;
+background: -moz-linear-gradient(top, #d5cea6 24%, #b29e5e 70%);
+background: -webkit-linear-gradient(top, #d5cea6 24%,#b29e5e 70%);
+background: linear-gradient(to bottom, #d5cea6 24%,#b29e5e 70%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d5cea6', endColorstr='#b29e5e',GradientType=0 ); */ 
+
+}
+
+.header-ish {
+	font-family: arial;
+	font-size: 15px;
+}
+
+.cell-ish {
+	font-family: arial; 
+	color: rgb(57, 57, 107);
+	
+}
+
+/* Part of animation style?  */ 
+#test p {
+    opacity: 0;
+    margin-top: 25px;
+    font-size: 21px;
+    text-align: center;
+    -webkit-transition: opacity 2s ease-in;
+    -moz-transition: opacity 2s ease-in;
+    -o-transition: opacity 2s ease-in;
+    -ms-transition: opacity 2s ease-in;
+    transition: opacity 2s ease-in;
+}​
+
+/* Animation CSS. Add  */ 
+
+		 .animated {
+            background-position: left top;
+            padding-top:95px;
+            margin-bottom:60px;
+            -webkit-animation-duration: 10s;
+            animation-duration: 10s;
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+         }
+         
+         @-webkit-keyframes fadeIn {
+            0% {opacity: 0;}
+            100% {opacity: 1;}
+         }
+         
+         @keyframes fadeIn {
+            0% {opacity: 0;}
+            100% {opacity: 1;}
+         }
+
+         .td {
+         	/* width: 15%; */
+
+         }
+
+         #user-choice-container {
+         	float: left;
+         	background-color: yellow; 
+         }
+          #user-choice-container {
+         	float: left;
+         	background-color: cyan; 
+         }
+
+         #display-choices-user {
+         	float: left;
+         }
+
+         #user_choice, #computer_choice {
+         	font-family: arial;
+         	font-size: 20px
+         }
+
+         .fadeIn {
+            -webkit-animation-name: fadeIn;
+            animation-name: fadeIn;
+         }
+         /* fadeIn html usage example: <div id = "animated-example" class = "animated fadeIn">image fades in here, if available</div> */ 
+        
+         #result-text-display-area {
+ 			padding: 4px;
+ 			margin: 4px;
+         	font-size: 20px ;
+         	font-family: arial; 
+         	min-height: 65px;
+         	display: block;
+         }
+        .score-container {
+        	display: inline-block;
+        	border: solid darkgray 2px;
+        	font-family: consolas; 
+        	background-color: rgb(148, 178, 170);
+         	font-color: rgba(43, 244, 17,.7);
+         	width: 40%;
+         	height: 100px;
+        }
+       
+		#score-heading {
+			margin-top: 10px;
+			font: 15px; 
+		}
+       
+         .score-container-heading {
+		background-color: rgb(120, 128, 150);
+	padding: 2px;
+		}
+	#user-score-container{
+		float: left;
+	}
+
+
+     
+
+         select{
+         	border-radius: 2px;
+            font-family:fantasy;
+            padding: 10px; 
+            font-size: 20px;
+
+         }
+
+         button {
+         	padding: 10px;
+         	font-family:fantasy;
+         	font-size: 15px; 
+         	color: rgb(9,19,19);
+         	border-radius: 8px;
+         	margin: 8px;
+         	margin-left: 12px;
+         }
+
+       #btn-refreshThePage {
+       	margin-left: 10px;
+       	min-width: 100%; 
+       	display:none;
+       }
+
+        #btn-repeatLastThrow {
+       	font-family: arial;
+       }
+
+
+      
+/*-------------------------*/ 
+#imgContainer img{
+-webkit-box-shadow: 12px 29px 81px 0px rgba(0,13,0,0.75);
+-moz-box-shadow: 12px 29px 81px 0px rgba(0,0,0,0.75);
+box-shadow: 12px 29px 81px 0px rgba(0,0,0,0.75);
+max-width:100%;
+
+
+}
+
+
+
+/*----Actual Flicker ------- */
+
+
+	@keyframes flickerAnimation {
+	  0%   { opacity:1; }
+	  50%  { opacity:.5; }
+	  100% { opacity:1; }
+	}
+	@-o-keyframes flickerAnimation{
+	  0%   { opacity:1; }
+	  50%  { opacity:.5; }
+	  100% { opacity:1; }
+	}
+	@-moz-keyframes flickerAnimation{
+	  0%   { opacity:1; }
+	  50%  { opacity:.5; }
+	  100% { opacity:1; }
+	}
+	@-webkit-keyframes flickerAnimation{
+	  0%   { opacity:1; }
+	  50%  { opacity:.5; }
+	  100% { opacity:1; }
+	}
+	.flashing {
+	   -webkit-animation: flickerAnimation .5s infinite ;
+	   -moz-animation: flickerAnimation .5s infinite ;
+	   -o-animation: flickerAnimation .5s infinite;
+	    animation: flickerAnimation .5s infinite;
+	}
+
+.title-shadowed {
+	font-family: inherit; 
+	font-size: 2rem;
+	text-shadow: 6px 6px 0px rgba(0,0,0,0.2);"
+}
+
+
+
+/* MODAL WINDOW ----------------------------  */ 
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* ---------------------------------------- */
+/* image fade in ---------------------------*/ 
+
+@-webkit-keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+	-webkit-animation: fadeIn .5s ease-in 1 forwards;
+  animation: fadeIn .5s ease-in 1 forwards;
+  opacity: 0;
+}
+
+.is-paused {
+	-webkit-animation-play-state: paused;
+  animation-play-state: paused;
+}
+
