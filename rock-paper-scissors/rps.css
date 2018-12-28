@@ -2,35 +2,35 @@ html{
 }
 body{
  background-color: lime;
-  	 background-color: rgb(235,243,240); 
+     background-color: rgb(235,243,240); 
 }
 .directions{
-	margin: 17px;
-	font-family: arial;
-	font-size: 15px;
+  margin: 17px;
+  font-family: arial;
+  font-size: 15px;
 }
 #rule-box {
-	padding:3px;
-	background-color:lightgray;
-	max-width: 300px; 
-	margin: 7px;
+  padding:3px;
+  background-color:lightgray;
+  max-width: 300px; 
+  margin: 7px;
 }
 
 #page-card{
-	background: beige; 
-	padding: 9px;
-	padding-bottom: 85px; 
-	padding-left: 12px;
+  background: beige; 
+  padding: 9px;
+  padding-bottom: 85px; 
+  padding-left: 12px;
 }
 * {
-	margin: 2px;
+  margin: 2px;
 }
 
 
 
 #myBtn{ 
-	margin-left:40px;
-	margin-top: 3px; 
+  margin-left:40px;
+  margin-top: 3px; 
     font-family: arial;
     color: rgb(68,68,65);
     background-color: rrgb(206, 206, 177);
@@ -38,69 +38,67 @@ body{
  }
 
 #div-table-thing{
-	display: flex;
+  display: flex;
 }
 
 #left-block {
-	/*  background: pink; */
+  /*  background: pink; */
 }
 #right-block {
-  /*	background: lightblue; */ 
+  /*  background: lightblue; */ 
 }
 .header-ish {
-	font-weight: bold;
+  font-weight: bold;
 }
 .block-columns {
-	flex: 1;
-	vertical-align: top; 
-	
+  flex: 1;
+  vertical-align: top; 
+  
 }
 
 #div-table-thing {
-	/* background: red; */ 
+  /* background: red; */ 
 }
 
+
+
+
+
+
+
+
 .score-container-body {
-	font-size: 45px;
-	display: block;
-	margin-left: 33%;
-	color: rgb(51, 61, 58);
+  font-size: 45px;
+  display: block;
+  margin-left: 33%;
+  color: rgb(51, 61, 58);
 }
 
 .display-4 {
-	font: bold; 
-	font-size: 2.2rem;
-	margin-bottom: 20px;
+  font: bold; 
+  font-size: 2.2rem;
+  margin-bottom: 20px;
 }
 
 #dd-div {
-	display: block;
+  display: block;
 }
 
 #dd {
   background-color: rgb(201, 204, 130);
   padding: 7px;
-}
-
-#div-table-thing{
-
-	/* background: #d5cea6;
-background: -moz-linear-gradient(top, #d5cea6 24%, #b29e5e 70%);
-background: -webkit-linear-gradient(top, #d5cea6 24%,#b29e5e 70%);
-background: linear-gradient(to bottom, #d5cea6 24%,#b29e5e 70%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d5cea6', endColorstr='#b29e5e',GradientType=0 ); */ 
-
+   visibility: hidden;
 }
 
 .header-ish {
-	font-family: arial;
-	font-size: 15px;
+  font-family: arial;
+  font-size: 15px;
 }
 
 .cell-ish {
-	font-family: arial; 
-	color: rgb(57, 57, 107);
-	
+  font-family: arial; 
+  color: rgb(57, 57, 107);
+  
 }
 
 /* Part of animation style?  */ 
@@ -118,7 +116,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d5cea6', end
 
 /* Animation CSS. Add  */ 
 
-		 .animated {
+     .animated {
             background-position: left top;
             padding-top:95px;
             margin-bottom:60px;
@@ -139,70 +137,65 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d5cea6', end
          }
 
          .td {
-         	/* width: 15%; */
+          /* width: 15%; */
 
          }
 
          #user-choice-container {
-         	float: left;
-         	background-color: yellow; 
+          float: left;
+          background-color: yellow; 
          }
           #user-choice-container {
-         	float: left;
-         	background-color: cyan; 
+          float: left;
+          background-color: cyan; 
          }
 
          #display-choices-user {
-         	float: left;
+          float: left;
          }
 
          #user_choice, #computer_choice {
-         	font-family: arial;
-         	font-size: 20px
+          font-family: arial;
+          font-size: 20px
          }
-
-         .fadeIn {
-            -webkit-animation-name: fadeIn;
-            animation-name: fadeIn;
-         }
-         /* fadeIn html usage example: <div id = "animated-example" class = "animated fadeIn">image fades in here, if available</div> */ 
         
          #result-text-display-area {
- 			padding: 4px;
- 			margin: 4px;
-         	font-size: 20px ;
-         	font-family: arial; 
-         	min-height: 65px;
-         	display: block;
+      padding: 4px;
+      margin: 4px;
+          font-size: 20px ;
+          font-family: arial; 
+          min-height: 65px;
+          display: block;
          }
         .score-container {
-        	display: inline-block;
-        	border: solid darkgray 2px;
-        	font-family: consolas; 
-        	background-color: rgb(148, 178, 170);
-         	font-color: rgba(43, 244, 17,.7);
-         	width: 40%;
-         	height: 100px;
+          display: inline-block;
+          border: solid darkgray 2px;
+          font-family: consolas; 
+          background-color: rgb(148, 178, 170);
+          font-color: rgba(43, 244, 17,.7);
+          width: 40%;
+          height: 100px;
         }
        
-		#score-heading {
-			margin-top: 10px;
-			font: 15px; 
-		}
+    #score-heading {
+      margin-top: 10px;
+      font: 15px; 
+      font-family: arial;
+    }
        
          .score-container-heading {
-		background-color: rgb(120, 128, 150);
-	padding: 2px;
-		}
-	#user-score-container{
-		float: left;
-	}
+    background-color: rgb(120, 128, 150);
+  padding: 2px;
+    }
+  #user-score-container{
+    float: left;
+  }
 
 
      
 
          select{
-         	border-radius: 2px;
+          border-radius: 2px;
             font-family:fantasy;
             padding: 10px; 
             font-size: 20px;
@@ -210,23 +203,23 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d5cea6', end
          }
 
          button {
-         	padding: 10px;
-         	font-family:fantasy;
-         	font-size: 15px; 
-         	color: rgb(9,19,19);
-         	border-radius: 8px;
-         	margin: 8px;
-         	margin-left: 12px;
+          padding: 10px;
+          font-family:fantasy;
+          font-size: 15px; 
+          color: rgb(9,19,19);
+          border-radius: 8px;
+          margin: 8px;
+          margin-left: 12px;
          }
 
        #btn-refreshThePage {
-       	margin-left: 10px;
-       	min-width: 100%; 
-       	display:none;
+        margin-left: 10px;
+        min-width: 100%; 
+        display:none;
        }
 
         #btn-repeatLastThrow {
-       	font-family: arial;
+        font-family: arial;
        }
 
 
@@ -246,37 +239,40 @@ max-width:100%;
 /*----Actual Flicker ------- */
 
 
-	@keyframes flickerAnimation {
-	  0%   { opacity:1; }
-	  50%  { opacity:.5; }
-	  100% { opacity:1; }
-	}
-	@-o-keyframes flickerAnimation{
-	  0%   { opacity:1; }
-	  50%  { opacity:.5; }
-	  100% { opacity:1; }
-	}
-	@-moz-keyframes flickerAnimation{
-	  0%   { opacity:1; }
-	  50%  { opacity:.5; }
-	  100% { opacity:1; }
-	}
-	@-webkit-keyframes flickerAnimation{
-	  0%   { opacity:1; }
-	  50%  { opacity:.5; }
-	  100% { opacity:1; }
-	}
-	.flashing {
-	   -webkit-animation: flickerAnimation .5s infinite ;
-	   -moz-animation: flickerAnimation .5s infinite ;
-	   -o-animation: flickerAnimation .5s infinite;
-	    animation: flickerAnimation .5s infinite;
-	}
+  @keyframes flickerAnimation {
+    0%   { opacity:1; }
+    50%  { opacity:.5; }
+    100% { opacity:1; }
+  }
+  @-o-keyframes flickerAnimation{
+    0%   { opacity:1; }
+    50%  { opacity:.5; }
+    100% { opacity:1; }
+  }
+  @-moz-keyframes flickerAnimation{
+    0%   { opacity:1; }
+    50%  { opacity:.5; }
+    100% { opacity:1; }
+  }
+  @-webkit-keyframes flickerAnimation{
+    0%   { opacity:1; }
+    50%  { opacity:.5; }
+    100% { opacity:1; }
+  }
+  .flashing {
+     -webkit-animation: flickerAnimation .5s infinite ;
+     -moz-animation: flickerAnimation .5s infinite ;
+     -o-animation: flickerAnimation .5s infinite;
+      animation: flickerAnimation .5s infinite;
+
+      /*undoes the min height set in display box initially to maintain uniform div size throughout game */ 
+    min-height: 0px; 
+  }
 
 .title-shadowed {
-	font-family: inherit; 
-	font-size: 2rem;
-	text-shadow: 6px 6px 0px rgba(0,0,0,0.2);"
+  font-family: inherit; 
+  font-size: 2rem;
+  text-shadow: 6px 6px 0px rgba(0,0,0,0.2);"
 }
 
 
@@ -336,14 +332,147 @@ max-width:100%;
   }
 }
 
+/*
+@-webkit-keyframes fadeIn {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 0;
+  }
+}
+
+*/
+
+
 .fade-in {
-	-webkit-animation: fadeIn .5s ease-in 1 forwards;
-  animation: fadeIn .5s ease-in 1 forwards;
+  -webkit-animation: fadeIn .2s ease-in 1 forwards;
+  animation: fadeIn .2s ease-in 1 forwards;
   opacity: 0;
 }
 
 .is-paused {
-	-webkit-animation-play-state: paused;
+  -webkit-animation-play-state: paused;
   animation-play-state: paused;
 }
 
+
+/* .ddm:hover,
+.ddm:focus {
+  color: rgb(63, 86, 79);
+  cursor: pointer;
+}  */ 
+
+/* PURE CSS DROP DOWN MENU -------------------------------- */ 
+
+
+/*Style for the first level menu bar*/
+ul#menu{
+  /*position:fixed; */ 
+  padding: 10px;
+          font-family:fantasy;
+          color: rgb(9,19,19);
+          border-radius: 8px;
+          margin: 8px;
+          margin-left: 12px;
+
+
+
+
+
+  top:0;
+  font-family: impact; 
+  background-color: rgb(201, 204, 130);
+  padding: 7px;
+
+  width:170PX;
+  height:3em;
+  margin:0;
+  padding:0 10px;
+  color:rgb(9,19,19);
+  box-shadow:0 -1px rgba(0,0,0,.5) inset;
+}
+
+ul#menu > li{
+   float: left;
+  list-style-type:none;
+  position:relative; 
+}
+
+label{
+  position:relative;
+  display:block;
+  padding:0 18px 0 12px;
+  line-height:3em;
+  transition:background 0.3s;
+  cursor:pointer;
+}
+
+label:after{
+  content:"";
+  position:absolute;
+  display:block;
+  top:50%;
+  right:5px;
+  width:0;
+  height:0;
+  border-top:4px solid rgba(255,255,255,.95);
+  border-bottom:0 solid rgba(255,255,255,.95);
+  border-left:4px solid transparent;
+  border-right:4px solid transparent;
+  transition:border-bottom .1s, border-top .1s .1s;
+  }
+
+label:hover,
+input:checked ~ label{background:rgba(0,0,0,.3);}
+
+input:checked ~ label:after{
+  border-top:0 solid rgba(255,255,255,.5);
+  border-bottom:4px solid rgba(255,255,255,.5);
+  transition:border-top .1s, border-bottom .1s .1s;
+}
+
+/*hide the inputs*/
+input{display:none}
+
+/*show the second levele menu of the selected voice*/
+input:checked ~ ul.submenu{
+  max-height:300px;
+  transition:max-height 0.5s ease-in;
+}
+
+/*style for the second level menu*/
+ul.submenu{
+  max-height:0;
+  padding:0;
+  overflow:hidden;
+  list-style-type:none;
+  background:#444;
+  box-shadow:0 0 1px rgba(0,0,0,.99);
+  transition:max-height 0.5s ease-out;
+  position:absolute;
+  min-width:100%;
+}
+
+ul.submenu li a{
+  display:block;
+  padding:12px;
+  color:#ddd;
+  text-decoration:none;
+  box-shadow:0 -1px rgba(0,0,0,.99) inset;
+  transition:background .3s;
+  white-space:nowrap;
+}
+
+ul.submenu li a:hover{
+  background:rgba(50,205,50,.99);
+}
+
+/*.fade-out {
+  -webkit-animation: fadeOut.5s ease-in 1 backwards;
+  animation: fadeOut .5s ease-in 1 backwards;
+  opacity: 1; 
+} */

@@ -10,6 +10,7 @@
     </script> --> 
 
      <link rel="stylesheet" href="rps.css">
+
     <script src="rps.js"></script>
   
 
@@ -64,15 +65,36 @@
   </div> <!-- end model class --> 
 <!--- Modal directions --------------------------------------> 
 <!------------------------------------------------------------> 
+			
 
+
+			<!-- PURE CSS DROP-DOWN ----------------------------------> 				
+
+				<ul id="menu">
+					  <li>
+					    <input id="check01" onclick="checkBoxClicked()" type="checkbox" name="menu"/>
+					  <!--- " 'select' box " --> 
+					    <label for="check01">Make Selection</label>
+
+					     <!-- drop-down options.    -->
+							    <ul class="submenu">
+							     <!-- drop-down options.    --> 
+							      <li><a onclick="ddOptionClicked('Rock')">Rock</a></li>   <!--href="#"-->
+							      <li><a onclick="ddOptionClicked('Paper')">Paper</a></li>		<!--href="#"-->
+							       <li><a onclick="ddOptionClicked('Scissors')">Scissors</a></li>	<!--href="#"-->
+							    </ul>
+					  </li> <!-- End of the first and only menu in my non-nav-bar  --> 
+					  <li>
+				</ul>
+			<!----------------------------------------------------------> 
 
 			<div id="dd-div">
-			 <select id="dd" onclick="ddClicked()" onchange="displayResult()">
+			 <select id="dd"  onclick="ddClicked()" onchange="displayResult()">
 			  <option value="--" selected="true" disabled="disabled">Make selection</option>
 			  <option value="Rock">Rock</option>
 			  <option value="Paper">Paper</option>
 			  <option value="Scissors">Scissors</option>
-			 </select>
+			 </select> 
 			  </div> <!-- end dd-div  -->
 			  <!-- spans are cells, rows are divs. The whole thing is wrapped in a div. --> 
 			  <div class="table" id="div-table-thing">
@@ -126,7 +148,6 @@
 		</form>		
 
 </div id="page-card">  <!-- end page card. -->	
-
-
+	 
   </body>
 </html>
