@@ -1,12 +1,15 @@
 html{
 }
 body{
- background-color: lime;
-     background-color: rgb(235,243,240); 
+     background-color: rgb(72, 99, 98);
+     /*margin: 0; 
+      height: 100%; 
+     overflow: hidden;*/ 
 }
+
 .directions{
-  margin: 17px;
-  margin-bottom: 6px;
+ ;
+  margin: 6px;
   font-family: arial;
   font-size: 15px;
 }
@@ -20,16 +23,16 @@ body{
 #page-card{
   background:#618685;
   padding: 9px;
-  padding-bottom: 85px; 
+  padding-bottom: 45px; 
   padding-left: 12px;
 }
 * {
-  margin: 2px;
+  margin: 2px; 
 }
 
 .text-shadowed {
   font-family: inherit; 
-  text-shadow: 2px 2px 0px rgba(0,0,0,0.2);"
+  text-shadow: 1px 1px 0px rgba(0,0,0,0.2);"
 }
 
 
@@ -286,7 +289,7 @@ max-width:100%;
 
 .title-shadowed {
   font-family: inherit; 
-  font-size: 2rem;
+  font-size: 25px;
   text-shadow: 6px 6px 0px rgba(0,0,0,0.2);"
 }
 
