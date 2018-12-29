@@ -10,9 +10,9 @@ var winSound = new Audio("a/ringGet.wav");
 var champSound = new Audio("a/FinalCountdown.wav");
 var loseSound = new Audio("a/loseRound.wav");
 var loseGame2 = new Audio("a/loseSound2.wav");
+var dropDownSound = new Audio("a/modskree.wav");
 
 var user_repeat_throw = "init";
-
 
 var resetSelectBox = function() {
 	document.getElementById("dd").value = "--";
@@ -33,15 +33,17 @@ var ddOptionClicked = function(opt) {
 
 	 document.getElementsByClassName("cell-ish")[0].style.display = "block";
 	 document.getElementsByClassName("cell-ish")[1].style.display = "block";
-
+	
 	displayResult(opt); 
-
 }
 
 function checkBoxClicked() {
+	dropDownSound.volume = .3; 
+	dropDownSound.play(); 
+ 	 	document.getElementById("menu").classList.remove("pulse");
+
 		 document.getElementsByClassName("cell-ish")[0].style.display = "none";
 		 document.getElementsByClassName("cell-ish")[1].style.display = "none";
-
 }
 		
 function displayResult(opt) {
@@ -83,7 +85,7 @@ function displayResult(opt) {
     var game_ref = new Array('Rock','Paper','Scissors');
     var game_throw = game_ref[Math.floor(Math.random() * 3)];
 
- // CHOICE FADE IN LOGIC [[[[[[[[[[[]]]]}}}}}]][[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]][[[[[[[[[]]]]]]]]]
+ // CHOICE FADE IN LOGIC -------------
 
  	/* declare choice text setting functions. */ 
     var setUserChoiceDisplayBox = function(text) { // FOR USER 
@@ -102,7 +104,7 @@ function displayResult(opt) {
     	ccd.innerHTML = text; 
     	ccd.classList.remove("is-paused");
     }
- // [[[[]]]] end of display setting [[[[[[[[[[[]]]]}}}}}]]]]]]]]]]]]]]][[[[[[[[[]]]]]]]]][[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]
+ //-----end of display setting --------------------
     console.log("user_throw, just before passed to selection display set function: " + user_throw);
 
     var computer_choice = game_throw; 
@@ -156,7 +158,7 @@ function displayResult(opt) {
 		//result description and text are separated to avoid logic errors when updating display text. Game scenarios will not change. 
 		//
 		 if(resultDescription == "scenario--tie") { 
-		 	document.getElementById("result-text-display-area").style ="font-size:35px";	
+		 	document.getElementById("result-text-display-area").style ="font-size:35px;font-variant: normal;";	
 		 	resultText = "Tie.";
 		 	lastWinner = "tie";
 		 	tieSound.volume = .2; 
@@ -225,11 +227,13 @@ function displayResult(opt) {
 		}
 		else if(lastWinner == "user"){
 		document.getElementById("result-text-display-area").innerHTML = resultText; 
-		document.getElementById("result-text-display-area").style.color = "darkgreen"; 
+		//sets lightgreen text
+		document.getElementById("result-text-display-area").style.color = "rgb(192, 225, 141)"; 
 		}
+		//sets redish text
 		else if(lastWinner == "computer" || lastWinner == "na"){
 		document.getElementById("result-text-display-area").innerHTML = resultText; 
-		document.getElementById("result-text-display-area").style.color = "darkred"; 
+		document.getElementById("result-text-display-area").style.color = "rgba(159, 12, 11, 0.85);"
 		}
 		
 	//----update the score board panels. ---------------------------------------------------------------
@@ -239,7 +243,11 @@ function displayResult(opt) {
 		document.getElementById('btn-repeatLastThrow').disabled = false;
  		document.getElementById('btn-repeatLastThrow').style.opacity = .9;
 
+ 	// Add pulse animation to selection box
+ 	document.getElementById("menu").classList.add("pulse");
 
+
+//-----------------------------------------------
 // User hits tournament victory threshold: -------------------------------------------------------------------------------------
 	 if(userScore == 5)  {
 
@@ -248,25 +256,25 @@ function displayResult(opt) {
 	 	document.getElementById("result-text-display-area").innerHTML = "YOU WIN THE GAME!"; 
 	 		 	document.getElementById("result-text-display-area").style = "font-size: 33px; color: darkgreen; font-family: impact; min-height:0px"; 
 
+	    document.getElementById("result-text-display-area").classList.add('flashing');
 
 	 	imgBox.setAttribute("src", "a/jam.gif");
 
 	 	var imgContainer = document.getElementById("imgContainer"); 
 	 	imgContainer.classList.remove("is-paused");
 
-imgContainer.style="margin-top: -200px;"
+		imgContainer.style="margin-top: -200px;"
 
 	 	champSound.volume = .4; 
 	 	champSound.play(); 
 
 
-
 	document.getElementById("dd").disabled = true;
 	    document.getElementById("dd").style.opacity = .2
 	    document.getElementById('btn-repeatLastThrow').setAttribute("onClick","refreshThePage()");
-
-	    document.getElementById('btn-repeatLastThrow').innerHTML = "Try Again";
-	    document.getElementById('btn-repeatLastThrow').style = "background-color: lightgreen; margin-top: 16px";
+	   // document.getElementById("btn-repeatLastThrow").classList.add("pulse");
+	    document.getElementById('btn-repeatLastThrow').innerHTML = "Play Again";
+	    document.getElementById('btn-repeatLastThrow').style = "background-color: rgb(187, 255, 0); margin-top: 16px";
 
 	    document.getElementById('dd-div').style="display:none";
 	    document.getElementById("check01").disabled = true;
@@ -298,9 +306,10 @@ imgContainer.style="margin-top: -200px;"
 	 	document.getElementById("dd").disabled = true;
 	    document.getElementById("dd").style.opacity = .2
 	    document.getElementById('btn-repeatLastThrow').setAttribute("onClick","refreshThePage()");
+	    // document.getElementById("btn-repeatLastThrow").classList.add("pulse");
 
 	    document.getElementById('btn-repeatLastThrow').innerHTML = "Try Again";
-	    document.getElementById('btn-repeatLastThrow').style = "background-color: lightgreen; margin-top: 16px";
+	    document.getElementById('btn-repeatLastThrow').style = "background-color: rgb(187, 255, 0); margin-top: 16px";
 
 	    document.getElementById('dd-div').style="display:none";
 	    document.getElementById("check01").disabled = true;
@@ -322,6 +331,8 @@ function repeatLastThrow() {
 
 	repeatLastMode = "on";
 	displayResult("na"); 
+	 	document.getElementById("menu").classList.remove("pulse");
+
 }
 
 /* function aClick () {
@@ -342,18 +353,9 @@ var playSelectSound = function() {
 	selectSound.play(); 
 }
 
-   // A D D     F A D E   P A U S E  ------------------------------------------------]]]]]]]]]]]]
-var addFadePause = function() { //CSS Fade pause reset
-	console.log("yes, addFadePause did run. ")
-	//user display list two 
-}
+   
 
-var ddClicked = function() {
-	playSelectSound();
-	addFadePause(); 
-}
-
-//-----------------------------------------------~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[[]]
+//-----------------------------------------------~~~~~~~~~~~
 // WINDOW ONLOAD 
 window.onload = function() {
 
@@ -363,19 +365,17 @@ brlt.disabled = true;
 brlt.style.opacity = .2;
 
 document.getElementById("user-choice-container-body").style = ("display: none");
-//**
-//var uccb = document.getElementById('user-choice-container-body');
 
-} // end window.onload function.  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[[]]
+} // end window.onload function.  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-//------
-//---- M o d a l   >>  E n d 
-//------
 
-/* modal window functions --------------------------------------------------- */ 
+
+// modal window functions ---------------------------------------------------
 var openModal = function() {
 	document.getElementById('myModal').classList.remove("is-paused");
  	document.getElementById('myModal').style = "display:block";
+ 	selectSound.volume = .4; 
+ 	selectSound.play(); 
   }
 // When the user clicks on <span> (x), close the modal
 var closeModal = function() {

@@ -6,6 +6,7 @@ body{
 }
 .directions{
   margin: 17px;
+  margin-bottom: 6px;
   font-family: arial;
   font-size: 15px;
 }
@@ -17,7 +18,7 @@ body{
 }
 
 #page-card{
-  background: beige; 
+  background:#618685;
   padding: 9px;
   padding-bottom: 85px; 
   padding-left: 12px;
@@ -26,15 +27,20 @@ body{
   margin: 2px;
 }
 
+.text-shadowed {
+  font-family: inherit; 
+  text-shadow: 2px 2px 0px rgba(0,0,0,0.2);"
+}
+
+
 
 
 #myBtn{ 
+  font-size: 12px;
   margin-left:40px;
-  margin-top: 3px; 
+  margin-top: 2px; 
+  margin-bottom: 10px; 
     font-family: arial;
-    color: rgb(68,68,65);
-    background-color: rrgb(206, 206, 177);
-
  }
 
 #div-table-thing{
@@ -93,11 +99,13 @@ body{
 .header-ish {
   font-family: arial;
   font-size: 15px;
+  color: rgb(33, 39, 37);
 }
 
 .cell-ish {
   font-family: arial; 
   color: rgb(57, 57, 107);
+  font-weight: bold; 
   
 }
 
@@ -166,6 +174,10 @@ body{
           font-family: arial; 
           min-height: 65px;
           display: block;
+    font-weight: bold;
+    color: #a9121094;
+    font-stretch: semi-expanded;
+    font-variant: all-small-caps;
          }
         .score-container {
           display: inline-block;
@@ -181,6 +193,7 @@ body{
       margin-top: 10px;
       font: 15px; 
       font-family: arial;
+      color: rgb(33, 39, 37);
     }
        
          .score-container-heading {
@@ -206,10 +219,11 @@ body{
           padding: 10px;
           font-family:fantasy;
           font-size: 15px; 
-          color: rgb(9,19,19);
+          color: rgba(158, 158, 122, 0.39);
           border-radius: 8px;
           margin: 8px;
           margin-left: 12px;
+          background-image: url("a/orig2.gif");
          }
 
        #btn-refreshThePage {
@@ -220,6 +234,7 @@ body{
 
         #btn-repeatLastThrow {
         font-family: arial;
+        color: rgba(171, 235, 75, 0.54);
        }
 
 
@@ -384,8 +399,8 @@ ul#menu{
 
 
   top:0;
-  font-family: impact; 
-  background-color: rgb(201, 204, 130);
+  font-family: fantasy; 
+  background-color: #94B2AA;
   padding: 7px;
 
   width:170PX;
@@ -403,6 +418,7 @@ ul#menu > li{
 }
 
 label{
+  font-family: fantasy;
   position:relative;
   display:block;
   padding:0 18px 0 12px;
@@ -460,7 +476,7 @@ ul.submenu{
 ul.submenu li a{
   display:block;
   padding:12px;
-  color:#ddd;
+  color: rgb(229, 229, 229);
   text-decoration:none;
   box-shadow:0 -1px rgba(0,0,0,.99) inset;
   transition:background .3s;
@@ -468,7 +484,8 @@ ul.submenu li a{
 }
 
 ul.submenu li a:hover{
-  background:rgba(50,205,50,.99);
+  background:rgba(187, 255, 0,.5);
+
 }
 
 /*.fade-out {
@@ -476,3 +493,60 @@ ul.submenu li a:hover{
   animation: fadeOut .5s ease-in 1 backwards;
   opacity: 1; 
 } */
+
+
+/** -- CSS Faded Line  */ 
+.fade_line{ 
+    display:block;
+    border:none;
+    color:red;
+    height:1px;
+    background:darkgray;
+    background: -webkit-gradient(radial, 25% 50%, 0, 50% 25%, 350, from(#2F4949), to(#618685));
+}
+
+
+/* CSS Pulse Animation */
+.pulse {
+  margin:100px;
+  display: block;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #cca92c;
+  cursor: pointer;
+  box-shadow: 0 0 0 rgba(204,169,44, 0.4);
+  animation: pulse 1s infinite;
+}
+.pulse:hover {
+  animation: none;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);
+  }
+  70% {
+      -webkit-box-shadow: 0 0 0 10px rgba(204,169,44, 0);
+  }
+  100% {
+      -webkit-box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+  }
+}
+@keyframes pulse {
+  0% {
+    -moz-box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);
+    box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);
+  }
+  70% {
+      -moz-box-shadow: 0 0 0 10px rgba(204,169,44, 0);
+      box-shadow: 0 0 0 10px rgba(204,169,44, 0);
+  }
+  100% {
+      -moz-box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+      box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+  }
+}
+
+
+
