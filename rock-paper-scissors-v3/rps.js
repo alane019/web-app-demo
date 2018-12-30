@@ -11,12 +11,16 @@ var champSound = new Audio("a/FinalCountdown.wav");
 var loseSound = new Audio("a/loseRound.wav");
 var loseGame2 = new Audio("a/loseSound2.wav");
 var dropDownSound = new Audio("a/modskree.wav");
+var blpSound = new Audio("a/blp27.wav");
 
 var user_repeat_throw = "init";
 
 var resetSelectBox = function() {
 	document.getElementById("dd").value = "--";
 }
+
+
+var name = ""; 
 
 /* helper function for wait command. */ 
 //const delay = ms => new Promise(res => setTimeout(res, ms));
@@ -253,8 +257,8 @@ function displayResult(opt) {
 
 	 	//display Image -------
 	 	var imgBox = document.getElementsByTagName("img")[0];
-	 	document.getElementById("result-text-display-area").innerHTML = "YOU WIN THE GAME!"; 
-	 		 	document.getElementById("result-text-display-area").style = "font-size: 33px; color: darkgreen; font-family: impact; min-height:0px"; 
+	 	document.getElementById("result-text-display-area").innerHTML = name.toUpperCase() +  ", YOU WIN THE GAME!"; 
+	 		 	document.getElementById("result-text-display-area").style =  "font-variant: small-caps; font-size: 33px; color: darkgreen; font-family: impact; min-height:0px"; 
 
 	    document.getElementById("result-text-display-area").classList.add('flashing');
 
@@ -287,8 +291,8 @@ function displayResult(opt) {
 // Computer hits tournament victory threshold: ------------------------------------------------------------------------------------
 	 if(computerScore == 5)  {
 	 	var imgBox = document.getElementsByTagName("img")[0];
-	   document.getElementById("result-text-display-area").innerHTML = "YOU LOSE THE GAME!"; 
-	  document.getElementById("result-text-display-area").style = "font-size: 33px; color: darkred; font-family: impact; min-height:0px"; 
+	   document.getElementById("result-text-display-area").innerHTML = name.toUpperCase() +  ", YOU LOSE THE GAME!"; 
+	  document.getElementById("result-text-display-area").style = "font-variant: small-caps; font-size: 33px; color: darkred; font-family: impact; min-height:0px"; 
 
 	 document.getElementById("result-text-display-area").classList.add('flashing');
 	 	imgBox.setAttribute("src", "a/lose.gif");
@@ -353,18 +357,103 @@ var playSelectSound = function() {
 	selectSound.play(); 
 }
 
-   
+ var planet = "";   
+var color = ""; 
+var r1 = ""
+
+var wethereR1 = ""; 
+var wethere	= function() {
+
+//console.warn("Hi!");
+
+}
+
+var page_Card = document.getElementById("page-card")
+
+var newColor = ""; 
+var checkColor = function() {
+	var newColorPrompt = prompt("Set a new page color?");
+
+	var str1  = "init"
+	 str1 =  newColorPrompt.toUpperCase();
+
+	if(str1.substring(0,3) === "YES" || str1.substring(0,2) === "Y") {
+				
+		newColor = prompt("What should the new color be? (you can also say 'original' to switch back to the original color).");
+
+		if(newColor.includes("original")) {
+					page_card.style = "background-color: initial";  
+		}
+
+		else {
+			page_card.style = "background-color: " + newColor;
+		}
+
+	}
+
+	 if(str1.substring(0,2) === "NO" || str1.substring(0,1) === "N"  || str1 === "init"  ) { }
+
+	 else{
+	 	document.getElementById("page-card").style = "background-color: " + newColorPrompt;
+	 	//if(document.getElementById("page-card").getAttribute('background-color') === 
+
+	 	//To options for detecting end of audio: 
+	 	// One: object.onended = function(){myScript};
+	 	// Two:  object.addEventListener("ended", myScript);
+
+
+
+
+	 }
+
+
+} 
+
+var onKeyPress = function() {
+
+//if()
+
+ blpSound.play(); 
+}
+
 
 //-----------------------------------------------~~~~~~~~~~~
 // WINDOW ONLOAD 
 window.onload = function() {
-
 var brlt = document.getElementById('btn-repeatLastThrow');
 brlt.setAttribute("onClick","repeatLastThrow()");
 brlt.disabled = true;
 brlt.style.opacity = .2;
 
+blpSound.volume = .3; 
+
 document.getElementById("user-choice-container-body").style = ("display: none");
+
+name = prompt("What's your name?");
+//alert("Hi, " + name + "!");
+//planet = prompt("What's your favorite planet?");
+color = prompt("What's your favorite color?");
+document.getElementById("page-card").style = "background-color: " + color; 
+//r1 = prompt("does that color work for you ?");
+setTimeout(checkColor, 1000);
+//console.log("bg-color is: " + document.getElementById("page-card").getAttribute('background-color')); 
+
+//setInterval runs a function every set number of seconds. 
+//setInterval(wethere, 2000);
+
+
+// Promise syntax
+//var prom = sleep(2000)  // prom, is a promise
+//var showdone = ()=>console.warn('done')
+//prom.then(showdone)
+// same thing, using await syntax
+//await wait(2000)
+//console.warn('done')
+
+
+//
+
+
 
 } // end window.onload function.  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
